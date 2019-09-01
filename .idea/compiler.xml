@@ -13,11 +13,10 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="currency-demo" target="1.5" />
-      <module name="currency-in-practice" target="1.5" />
-      <module name="java-basic" target="1.5" />
-      <module name="reflect-demo" target="1.5" />
-      <module name="serialize-demo" target="1.5" />
+      <module name="currency-demo" target="1.8" />
+      <module name="java-basic" target="1.8" />
+      <module name="reflect-demo" target="1.8" />
+      <module name="serialize-demo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
