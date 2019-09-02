@@ -13,6 +13,7 @@
         <module>reflect-demo</module>
         <module>serialize-demo</module>
         <module>classloader-demo</module>
+        <module>reflect-demo</module>
     </modules>
 
 
