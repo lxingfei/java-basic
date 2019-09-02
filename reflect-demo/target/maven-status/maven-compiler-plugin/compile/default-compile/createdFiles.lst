@@ -1,3 +1,6 @@
 com\leh\beans\Cat.class
 com\leh\ClassTest.class
+com\leh\MainMethodTest.class
 com\leh\ConstructorDemo.class
+com\leh\FieldTest.class
+com\leh\ListTest.class
