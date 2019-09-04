@@ -2,25 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df08890e-142c-41f6-84a3-9f8742d1d702" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/classloader/CompileDemo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/jvm/DeadLockDemo1.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/jvm/DeadLockDemo2.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/jvm/FakeDeadLock.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/jvm/OutOfMemoryDump.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/model/User.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/lock/UnReentrant.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/classloader-demo/classloader-demo.iml" afterPath="$PROJECT_DIR$/classloader-demo/classloader-demo.iml" />
       <change beforePath="$PROJECT_DIR$/currency-demo/currency-demo.iml" afterPath="$PROJECT_DIR$/currency-demo/currency-demo.iml" />
-      <change beforePath="$PROJECT_DIR$/java-basic.iml" afterPath="$PROJECT_DIR$/java-basic.iml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/reflect-demo/reflect-demo.iml" afterPath="$PROJECT_DIR$/reflect-demo/reflect-demo.iml" />
-      <change beforePath="$PROJECT_DIR$/reflect-demo/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/reflect-demo/target/maven-archiver/pom.properties" />
-      <change beforePath="$PROJECT_DIR$/reflect-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/reflect-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change beforePath="$PROJECT_DIR$/reflect-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/reflect-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change beforePath="$PROJECT_DIR$/reflect-demo/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/reflect-demo/target/reflect-demo-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/reflect-demo/target/reflect-demo-1.0-SNAPSHOT.jar" />
-      <change beforePath="$PROJECT_DIR$/serialize-demo/serialize-demo.iml" afterPath="$PROJECT_DIR$/serialize-demo/serialize-demo.iml" />
-      <change beforePath="$PROJECT_DIR$/serialize-demo/target/classes/com/leh/SerializeStorage.class" afterPath="$PROJECT_DIR$/serialize-demo/target/classes/com/leh/SerializeStorage.class" />
-      <change beforePath="$PROJECT_DIR$/serialize-demo/target/classes/com/leh/SerializeStorageSameFile.class" afterPath="$PROJECT_DIR$/serialize-demo/target/classes/com/leh/SerializeStorageSameFile.class" />
-      <change beforePath="$PROJECT_DIR$/serialize-demo/target/classes/com/leh/SerializeWithoutStatic.class" afterPath="$PROJECT_DIR$/serialize-demo/target/classes/com/leh/SerializeWithoutStatic.class" />
     </list>
     <ignored path="$PROJECT_DIR$/classloader-demo/target/" />
     <ignored path="$PROJECT_DIR$/reflect-demo/target/" />
@@ -35,48 +27,89 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="21" column="37" lean-forward="false" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
+            <state relative-caret-position="546">
+              <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClassTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/reflect-demo/src/main/java/com/leh/ClassTest.java">
+      <file leaf-file-name="UnReentrant.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/lock/UnReentrant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-106">
-              <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="27" />
+            <state relative-caret-position="138">
+              <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ListTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/reflect-demo/src/main/java/com/leh/ListTest.java">
+      <file leaf-file-name="CompileDemo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/classloader/CompileDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="47" column="43" lean-forward="false" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
+            <state relative-caret-position="391">
+              <caret line="17" column="18" lean-forward="false" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="compiler.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
+      <file leaf-file-name="OutOfMemoryDump.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/jvm/OutOfMemoryDump.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="920">
+              <caret line="40" column="72" lean-forward="false" selection-start-line="40" selection-start-column="72" selection-end-line="40" selection-end-column="72" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FakeDeadLock.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/jvm/FakeDeadLock.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DeadLockDemo1.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/jvm/DeadLockDemo1.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DeadLockDemo2.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/jvm/DeadLockDemo2.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="846">
+              <caret line="43" column="1" lean-forward="true" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -98,6 +131,14 @@
       <list>
         <option value="$PROJECT_DIR$/java-basic/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/lock/UnReentrant.java" />
+        <option value="$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/classloader/CompileDemo.java" />
+        <option value="$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/model/User.java" />
+        <option value="$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/jvm/OutOfMemoryDump.java" />
+        <option value="$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/jvm/DeadLock.java" />
+        <option value="$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/jvm/FakeDeadLock.java" />
+        <option value="$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/jvm/DeadLockDemo1.java" />
+        <option value="$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/jvm/DeadLockDemo2.java" />
       </list>
     </option>
   </component>
@@ -161,6 +202,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -171,25 +213,25 @@
             <path>
               <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
               <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="reflect-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="classloader-demo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
               <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="reflect-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="classloader-demo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
               <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="reflect-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="classloader-demo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
               <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="reflect-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="classloader-demo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -197,7 +239,7 @@
             <path>
               <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
               <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="reflect-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="classloader-demo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -206,21 +248,123 @@
             <path>
               <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
               <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="reflect-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="classloader-demo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="leh" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
+              <item name="classloader-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="leh" type="462c0819:PsiDirectoryNode" />
+              <item name="jvm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
+              <item name="classloader-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
+              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
+              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
+              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
+              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
+              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
+              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="leh" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
+              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="leh" type="462c0819:PsiDirectoryNode" />
+              <item name="lock" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="sun" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="sun" type="462c0819:PsiDirectoryNode" />
+              <item name="misc" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -232,6 +376,14 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.leh.jvm" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ideawork\java-basic\classloader-demo" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -245,7 +397,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.DeadLockDemo1">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -269,6 +421,63 @@
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="reflect-demo" />
+      <envs />
+    </configuration>
+    <configuration name="DeadLockDemo1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.leh.jvm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.leh.jvm.DeadLockDemo1" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="classloader-demo" />
+      <envs />
+    </configuration>
+    <configuration name="FakeDeadLock" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.leh.jvm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.leh.jvm.FakeDeadLock" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="classloader-demo" />
+      <envs />
+    </configuration>
+    <configuration name="OutOfMemoryDump" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.leh.jvm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.leh.jvm.OutOfMemoryDump" />
+      <option name="VM_PARAMETERS" value="-Xms10m -Xmx10m -XX:+PrintGCDetails -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=D:\oom\oom.dump" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="classloader-demo" />
       <envs />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -345,9 +554,18 @@
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
+    <list size="4">
+      <item index="0" class="java.lang.String" itemvalue="Application.ClassTest" />
+      <item index="1" class="java.lang.String" itemvalue="Application.OutOfMemoryDump" />
+      <item index="2" class="java.lang.String" itemvalue="Application.FakeDeadLock" />
+      <item index="3" class="java.lang.String" itemvalue="Application.DeadLockDemo1" />
+    </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Application.ClassTest" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Application.DeadLockDemo1" />
+        <item index="1" class="java.lang.String" itemvalue="Application.FakeDeadLock" />
+        <item index="2" class="java.lang.String" itemvalue="Application.OutOfMemoryDump" />
+        <item index="3" class="java.lang.String" itemvalue="Application.ClassTest" />
       </list>
     </recent_temporary>
   </component>
@@ -364,52 +582,89 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1567397589192</updated>
-      <workItem from="1567397591751" duration="1863000" />
+      <workItem from="1567397591751" duration="6505000" />
+      <workItem from="1567491615828" duration="15166000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1863000" />
+    <option name="totallyTimeSpent" value="21671000" />
+  </component>
+  <component name="TodoView" selected-index="1">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1932" height="1040" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25747862" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25747862" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="News Feed" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="News Feed" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39911798" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296582" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43219405" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4950386" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Reviews" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="BPMNPalette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20727673" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25689086" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1923077" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Reviews" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="BPMNPalette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -419,10 +674,26 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/java-basic/pom.xml">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reflect-demo/src/main/java/com/leh/ClassTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reflect-demo/src/main/java/com/leh/ListTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="47" column="43" lean-forward="false" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
           <folding />
         </state>
       </provider>
@@ -435,27 +706,141 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reflect-demo/src/main/java/com/leh/ListTest.java">
+    <entry file="file://$PROJECT_DIR$/java-basic/pom.xml" />
+    <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="47" column="43" lean-forward="false" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/reflect-demo/src/main/java/com/leh/ListTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="21" column="37" lean-forward="false" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
+        <state relative-caret-position="1035">
+          <caret line="47" column="43" lean-forward="false" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/reflect-demo/src/main/java/com/leh/ClassTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-106">
-          <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="27" />
+        <state relative-caret-position="759">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/jre/lib/rt.jar!/sun/misc/Lock.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <marker date="1526265745741" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1526265745741" expanded="true" signature="200:207" ph="{}" />
+            <marker date="1526265745741" expanded="true" signature="279:379" ph="{...}" />
+            <marker date="1526265745741" expanded="true" signature="425:487" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/concurrent/locks/Lock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="166" column="17" lean-forward="false" selection-start-line="166" selection-start-column="17" selection-end-line="166" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/lock/UnReentrant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/classloader/UnReentrant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="730" column="24" lean-forward="false" selection-start-line="730" selection-start-column="24" selection-end-line="730" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/classloader/CompileDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="17" column="18" lean-forward="false" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/UUID.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="385" column="0" lean-forward="false" selection-start-line="385" selection-start-column="0" selection-end-line="385" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/jvm/DeadLockDemo1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/jvm/DeadLockDemo2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="846">
+          <caret line="43" column="1" lean-forward="true" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/jvm/FakeDeadLock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/jvm/OutOfMemoryDump.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="920">
+          <caret line="40" column="72" lean-forward="false" selection-start-line="40" selection-start-column="72" selection-end-line="40" selection-end-column="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
