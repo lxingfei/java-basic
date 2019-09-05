@@ -14,6 +14,8 @@ package com.leh.lock;
  *
  *  类信息里什么也没有，怎么照样也能加锁？ 锁的对象的哪里？
  *
+ *  锁的是 对象头
+ *
  */
 
 public class MyLock {

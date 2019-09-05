@@ -17,6 +17,6 @@ package com.leh.lock;
 
 public class MyLock2 {
 
-    int i; //4byte  new 对象的时候在内存至少应分配 4 byte  加上sync锁的时候可能将 i 设置成 1  从而实现 对 对象 加锁
+    double d; //4byte  new 对象的时候在内存至少应分配 4 byte  加上sync锁的时候可能将 i 设置成 1  从而实现 对 对象 加锁
     
 }
