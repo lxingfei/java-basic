@@ -65,7 +65,7 @@ public class WhereObjectLockedDemo {
                   8     4          (object header)                           81 c1 00 f8 (10000001 11000001 00000000 11111000) (-134168191)
                  12     4          (alignment/padding gap)
                  16     8   double MyLock2.d                                 0.0
-            Instance size: 24 bytes  --（对象头[4 + 4 + 4] + 实例数据 [8] + 填充字节[4]）
+            Instance size: 24 bytes  --（对象头[ 4 + 4 + 4 ] + 实例数据 [8] + 填充字节[4]）
             Space losses: 4 bytes internal + 0 bytes external = 4 bytes total
 
          */
