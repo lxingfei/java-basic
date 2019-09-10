@@ -40,7 +40,7 @@ public class ListTest {
 
 
         /*
-        反射可以跳过泛型
+            反射可以跳过泛型
          */
 
         List list = new ArrayList();

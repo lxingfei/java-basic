@@ -1,5 +1,7 @@
-package com.leh.lock;
+package com.leh.lock.syncdemo;
 
+import com.leh.lock.MyLock;
+import com.leh.lock.MyLock2;
 import org.openjdk.jol.info.ClassLayout;
 
 /**
