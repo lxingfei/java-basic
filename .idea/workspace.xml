@@ -2,16 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df08890e-142c-41f6-84a3-9f8742d1d702" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/lock/MyLock.java" afterPath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/MyLock.java" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/lock/MyLock2.java" afterPath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/MyLock2.java" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/lock/syncdemo/BiasedLock.java" afterPath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/syncdemo/BiasedLock.java" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/lock/syncdemo/BiasedLockDelay.java" afterPath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/syncdemo/BiasedLockDelay.java" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/lock/syncdemo/GcMark.java" afterPath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/syncdemo/GcMark.java" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/lock/syncdemo/HeavyWeightLock.java" afterPath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/syncdemo/HeavyWeightLock.java" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/lock/syncdemo/LightWeightLock.java" afterPath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/syncdemo/LightWeightLock.java" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/lock/syncdemo/NoLock.java" afterPath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/syncdemo/NoLock.java" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/lock/syncdemo/WhereObjectLockedDemo.java" afterPath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/syncdemo/WhereObjectLockedDemo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/CurrencyLockDemo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/CurrencyNoLockDemo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/ParkDemo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/ParkSpinLock.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/ParkSpinLockDemo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/SleepSpinLock.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/Spin4Lock.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/SpinLockDemo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/YieldSpinLock.java" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/lock/MyLock.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/lock/MyLock2.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/lock/WhereObjectLockedDemo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/lock/syncdemo/BiasedLock.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/lock/syncdemo/BiasedLockDelay.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/lock/syncdemo/GcMark.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/lock/syncdemo/HeavyWeightLock.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/lock/syncdemo/LightWeightLock.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/lock/syncdemo/NoLock.class" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/classloader-demo/target/" />
     <ignored path="$PROJECT_DIR$/reflect-demo/target/" />
@@ -30,155 +38,51 @@
       <file leaf-file-name="LockSupport.java" pinned="false" current-in-tab="false">
         <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/concurrent/locks/LockSupport.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="171" column="23" lean-forward="false" selection-start-line="171" selection-start-column="23" selection-end-line="171" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Unsafe.class" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/jre/lib/rt.jar!/sun/misc/Unsafe.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5980">
-              <caret line="305" column="32" lean-forward="false" selection-start-line="305" selection-start-column="32" selection-end-line="305" selection-end-column="32" />
+            <state relative-caret-position="805">
+              <caret line="119" column="13" lean-forward="false" selection-start-line="119" selection-start-column="13" selection-end-line="119" selection-end-column="13" />
               <folding>
-                <marker date="1526265745741" expanded="false" signature="0:104" ph="/.../" />
-                <marker date="1526265745741" expanded="false" signature="132:297" ph="..." />
-                <marker date="1526265745741" expanded="true" signature="1492:1499" ph="{}" />
-                <marker date="1526265745741" expanded="true" signature="1559:1787" ph="{...}" />
-                <marker date="1526265745741" expanded="true" signature="2950:2968" ph="/**...*/" />
-                <marker date="1526265745741" expanded="false" signature="3029:3040" ph=" { " />
-                <marker date="1526265745741" expanded="false" signature="3077:3083" ph=" }" />
-                <marker date="1526265745741" expanded="true" signature="3089:3107" ph="/**...*/" />
-                <marker date="1526265745741" expanded="false" signature="3179:3190" ph=" { " />
-                <marker date="1526265745741" expanded="false" signature="3226:3232" ph=" }" />
-                <marker date="1526265745741" expanded="true" signature="3238:3256" ph="/**...*/" />
-                <marker date="1526265745741" expanded="false" signature="3323:3334" ph=" { " />
-                <marker date="1526265745741" expanded="false" signature="3374:3380" ph=" }" />
-                <marker date="1526265745741" expanded="true" signature="3386:3404" ph="/**...*/" />
-                <marker date="1526265745741" expanded="false" signature="3482:3493" ph=" { " />
-                <marker date="1526265745741" expanded="false" signature="3532:3538" ph=" }" />
-                <marker date="1526265745741" expanded="true" signature="3544:3562" ph="/**...*/" />
-                <marker date="1526265745741" expanded="false" signature="3631:3642" ph=" { " />
-                <marker date="1526265745741" expanded="false" signature="3683:3689" ph=" }" />
-                <marker date="1526265745741" expanded="true" signature="3695:3713" ph="/**...*/" />
-                <marker date="1526265745741" expanded="false" signature="3793:3804" ph=" { " />
-                <marker date="1526265745741" expanded="false" signature="3844:3850" ph=" }" />
-                <marker date="1526265745741" expanded="true" signature="3856:3874" ph="/**...*/" />
-                <marker date="1526265745741" expanded="false" signature="3937:3948" ph=" { " />
-                <marker date="1526265745741" expanded="false" signature="3986:3992" ph=" }" />
-                <marker date="1526265745741" expanded="true" signature="3998:4016" ph="/**...*/" />
-                <marker date="1526265745741" expanded="false" signature="4090:4101" ph=" { " />
-                <marker date="1526265745741" expanded="false" signature="4138:4144" ph=" }" />
-                <marker date="1526265745741" expanded="true" signature="4150:4168" ph="/**...*/" />
-                <marker date="1526265745741" expanded="false" signature="4233:4244" ph=" { " />
-                <marker date="1526265745741" expanded="false" signature="4283:4289" ph=" }" />
-                <marker date="1526265745741" expanded="true" signature="4295:4313" ph="/**...*/" />
-                <marker date="1526265745741" expanded="false" signature="4389:4400" ph=" { " />
-                <marker date="1526265745741" expanded="false" signature="4438:4444" ph=" }" />
-                <marker date="1526265745741" expanded="true" signature="4450:4468" ph="/**...*/" />
-                <marker date="1526265745741" expanded="false" signature="4531:4542" ph=" { " />
-                <marker date="1526265745741" expanded="false" signature="4580:4586" ph=" }" />
-                <marker date="1526265745741" expanded="true" signature="4592:4610" ph="/**...*/" />
-                <marker date="1526265745741" expanded="false" signature="4684:4695" ph=" { " />
-                <marker date="1526265745741" expanded="false" signature="4732:4738" ph=" }" />
-                <marker date="1526265745741" expanded="true" signature="4744:4762" ph="/**...*/" />
-                <marker date="1526265745741" expanded="false" signature="4825:4836" ph=" { " />
-                <marker date="1526265745741" expanded="false" signature="4874:4880" ph=" }" />
-                <marker date="1526265745741" expanded="true" signature="4886:4904" ph="/**...*/" />
-                <marker date="1526265745741" expanded="false" signature="4978:4989" ph=" { " />
-                <marker date="1526265745741" expanded="false" signature="5026:5032" ph=" }" />
-                <marker date="1526265745741" expanded="true" signature="5038:5056" ph="/**...*/" />
-                <marker date="1526265745741" expanded="false" signature="5121:5132" ph=" { " />
-                <marker date="1526265745741" expanded="false" signature="5171:5177" ph=" }" />
-                <marker date="1526265745741" expanded="true" signature="5183:5201" ph="/**...*/" />
-                <marker date="1526265745741" expanded="false" signature="5277:5288" ph=" { " />
-                <marker date="1526265745741" expanded="false" signature="5326:5332" ph=" }" />
-                <marker date="1526265745741" expanded="true" signature="5338:5356" ph="/**...*/" />
-                <marker date="1526265745741" expanded="false" signature="5423:5434" ph=" { " />
-                <marker date="1526265745741" expanded="false" signature="5474:5480" ph=" }" />
-                <marker date="1526265745741" expanded="true" signature="5486:5504" ph="/**...*/" />
-                <marker date="1526265745741" expanded="false" signature="5582:5593" ph=" { " />
-                <marker date="1526265745741" expanded="false" signature="5632:5638" ph=" }" />
-                <marker date="1526265745741" expanded="false" signature="6704:6715" ph=" { " />
-                <marker date="1526265745741" expanded="false" signature="6762:6768" ph=" }" />
-                <marker date="1526265745741" expanded="true" signature="6925:7003" ph="{...}" />
-                <marker date="1526265745741" expanded="true" signature="7056:7074" ph="/**...*/" />
-                <marker date="1526265745741" expanded="true" signature="7130:7264" ph="{...}" />
-                <marker date="1526265745741" expanded="true" signature="7270:7288" ph="/**...*/" />
-                <marker date="1526265745741" expanded="true" signature="7354:7634" ph="{...}" />
-                <marker date="1526265745741" expanded="true" signature="8424:8442" ph="/**...*/" />
-                <marker date="1526265745741" expanded="true" signature="8514:8532" ph="/**...*/" />
-                <marker date="1526265745741" expanded="true" signature="8603:8621" ph="/**...*/" />
-                <marker date="1526265745741" expanded="true" signature="10811:10996" ph="{...}" />
-                <marker date="1526265745741" expanded="true" signature="11069:11257" ph="{...}" />
-                <marker date="1526265745741" expanded="true" signature="11327:11505" ph="{...}" />
-                <marker date="1526265745741" expanded="true" signature="11578:11759" ph="{...}" />
-                <marker date="1526265745741" expanded="true" signature="11838:12025" ph="{...}" />
-                <marker date="1526265745741" expanded="false" signature="12188:12199" ph=" { " />
-                <marker date="1526265745741" expanded="false" signature="12230:12236" ph=" }" />
-                <marker date="1526265745741" expanded="true" signature="12249:13814" ph="{...}" />
+                <element signature="e#10983#10984#0" expanded="true" />
+                <element signature="e#11021#11022#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Semaphore.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/concurrent/Semaphore.java">
+      <file leaf-file-name="ParkSpinLock.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/ParkSpinLock.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2783">
-              <caret line="155" column="22" lean-forward="false" selection-start-line="155" selection-start-column="13" selection-end-line="155" selection-end-column="22" />
+            <state relative-caret-position="138">
+              <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HeavyWeightLock.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/syncdemo/HeavyWeightLock.java">
+      <file leaf-file-name="Queue.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/Queue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="943">
-              <caret line="42" column="46" lean-forward="false" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
+            <state relative-caret-position="185">
+              <caret line="198" column="6" lean-forward="false" selection-start-line="198" selection-start-column="6" selection-end-line="198" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GcMark.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/syncdemo/GcMark.java">
+      <file leaf-file-name="ParkSpinLockDemo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/ParkSpinLockDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="943">
-              <caret line="42" column="9" lean-forward="false" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+            <state relative-caret-position="276">
+              <caret line="39" column="21" lean-forward="false" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BiasedLockDelay.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/syncdemo/BiasedLockDelay.java">
+      <file leaf-file-name="ParkDemo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/ParkDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1541">
-              <caret line="68" column="79" lean-forward="false" selection-start-line="68" selection-start-column="48" selection-end-line="68" selection-end-column="79" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BiasedLock.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/syncdemo/BiasedLock.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="736">
-              <caret line="33" column="57" lean-forward="false" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
+            <state relative-caret-position="1104">
+              <caret line="48" column="8" lean-forward="false" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -248,6 +152,20 @@
         <option value="$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/classloader/LoadOrderDemo.java" />
         <option value="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/syncdemo/BiasedLock.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someidea/SpinViaWhile.java" />
+        <option value="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/TestDemo.java" />
+        <option value="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/TestSyncDemo.java" />
+        <option value="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/CurrenDemo.java" />
+        <option value="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/CurrencyDemo.java" />
+        <option value="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/CurrencyLockDemo.java" />
+        <option value="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/SpinViaWhile.java" />
+        <option value="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/SpinLockDemo.java" />
+        <option value="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/Spin4Lock.java" />
+        <option value="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/YieldSpinLock.java" />
+        <option value="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/SleepSpinLock.java" />
+        <option value="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/ParkDemo.java" />
+        <option value="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/ParkSpinLockDemo.java" />
+        <option value="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/ParkSpinLock.java" />
       </list>
     </option>
   </component>
@@ -323,25 +241,25 @@
             <path>
               <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
               <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="serialize-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
               <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="serialize-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
               <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="serialize-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
               <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="serialize-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -349,7 +267,7 @@
             <path>
               <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
               <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="serialize-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -358,7 +276,7 @@
             <path>
               <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
               <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="serialize-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -368,15 +286,115 @@
             <path>
               <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
               <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="serialize-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="leh" type="462c0819:PsiDirectoryNode" />
+              <item name="juc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
+              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="leh" type="462c0819:PsiDirectoryNode" />
+              <item name="juc" type="462c0819:PsiDirectoryNode" />
+              <item name="lock" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
+              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="leh" type="462c0819:PsiDirectoryNode" />
+              <item name="juc" type="462c0819:PsiDirectoryNode" />
+              <item name="lock" type="462c0819:PsiDirectoryNode" />
+              <item name="reentrantdemo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
+              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="leh" type="462c0819:PsiDirectoryNode" />
+              <item name="juc" type="462c0819:PsiDirectoryNode" />
+              <item name="lock" type="462c0819:PsiDirectoryNode" />
+              <item name="reentrantdemo" type="462c0819:PsiDirectoryNode" />
+              <item name="someway4lock" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
+              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="leh" type="462c0819:PsiDirectoryNode" />
+              <item name="juc" type="462c0819:PsiDirectoryNode" />
+              <item name="lock" type="462c0819:PsiDirectoryNode" />
+              <item name="syncdemo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
+              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
+              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
+              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
+              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="leh" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
+              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="leh" type="462c0819:PsiDirectoryNode" />
+              <item name="guava" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
               <item name="java-basic" type="462c0819:PsiDirectoryNode" />
               <item name="serialize-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="generated-sources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
@@ -470,6 +488,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.leh.juc.lock.reentrantdemo.someway4lock" />
+      <recent name="com.leh.juc.lock.reentrantdemo" />
       <recent name="com.leh.lock.syncdemo" />
       <recent name="com.leh.lock" />
       <recent name="com.leh.jvm" />
@@ -490,59 +510,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.LoadOrderDemo">
+  <component name="RunManager" selected="Application.ParkDemo">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <module />
     </configuration>
-    <configuration name="BiasedLock" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="CurrencyLockDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.leh.lock.syncdemo.*" />
+          <option name="PATTERN" value="com.leh.juc.lock.reentrantdemo.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="com.leh.lock.syncdemo.BiasedLock" />
-      <option name="VM_PARAMETERS" value="-XX:BiasedLockingStartupDelay=0" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="currency-demo" />
-      <envs />
-    </configuration>
-    <configuration name="BiasedLockDelay" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.leh.lock.syncdemo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.leh.lock.syncdemo.BiasedLockDelay" />
-      <option name="VM_PARAMETERS" value="-XX:BiasedLockingStartupDelay=0" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="currency-demo" />
-      <envs />
-    </configuration>
-    <configuration name="HeavyWeightLock" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.leh.lock.syncdemo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.leh.lock.syncdemo.HeavyWeightLock" />
+      <option name="MAIN_CLASS_NAME" value="com.leh.juc.lock.reentrantdemo.CurrencyLockDemo" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -554,14 +536,14 @@
       <module name="currency-demo" />
       <envs />
     </configuration>
-    <configuration name="LightWeightLock" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="CurrencyNoLockDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.leh.lock.syncdemo.*" />
+          <option name="PATTERN" value="com.leh.juc.lock.reentrantdemo.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="com.leh.lock.syncdemo.LightWeightLock" />
+      <option name="MAIN_CLASS_NAME" value="com.leh.juc.lock.reentrantdemo.CurrencyNoLockDemo" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -590,6 +572,44 @@
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="classloader-demo" />
+      <envs />
+    </configuration>
+    <configuration name="ParkDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.leh.juc.lock.reentrantdemo.someway4lock.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.leh.juc.lock.reentrantdemo.someway4lock.ParkDemo" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="currency-demo" />
+      <envs />
+    </configuration>
+    <configuration name="SpinLockDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.leh.juc.lock.reentrantdemo.someway4lock.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.leh.juc.lock.reentrantdemo.someway4lock.SpinLockDemo" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="currency-demo" />
       <envs />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -667,19 +687,19 @@
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.LightWeightLock" />
-      <item index="1" class="java.lang.String" itemvalue="Application.BiasedLockDelay" />
-      <item index="2" class="java.lang.String" itemvalue="Application.BiasedLock" />
-      <item index="3" class="java.lang.String" itemvalue="Application.HeavyWeightLock" />
-      <item index="4" class="java.lang.String" itemvalue="Application.LoadOrderDemo" />
+      <item index="0" class="java.lang.String" itemvalue="Application.LoadOrderDemo" />
+      <item index="1" class="java.lang.String" itemvalue="Application.CurrencyNoLockDemo" />
+      <item index="2" class="java.lang.String" itemvalue="Application.CurrencyLockDemo" />
+      <item index="3" class="java.lang.String" itemvalue="Application.SpinLockDemo" />
+      <item index="4" class="java.lang.String" itemvalue="Application.ParkDemo" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.LoadOrderDemo" />
-        <item index="1" class="java.lang.String" itemvalue="Application.BiasedLock" />
-        <item index="2" class="java.lang.String" itemvalue="Application.LightWeightLock" />
-        <item index="3" class="java.lang.String" itemvalue="Application.HeavyWeightLock" />
-        <item index="4" class="java.lang.String" itemvalue="Application.BiasedLockDelay" />
+        <item index="0" class="java.lang.String" itemvalue="Application.ParkDemo" />
+        <item index="1" class="java.lang.String" itemvalue="Application.SpinLockDemo" />
+        <item index="2" class="java.lang.String" itemvalue="Application.CurrencyLockDemo" />
+        <item index="3" class="java.lang.String" itemvalue="Application.CurrencyNoLockDemo" />
+        <item index="4" class="java.lang.String" itemvalue="Application.LoadOrderDemo" />
       </list>
     </recent_temporary>
   </component>
@@ -705,7 +725,7 @@
       <workItem from="1567754269551" duration="2235000" />
       <workItem from="1568019062493" duration="11692000" />
       <workItem from="1568106721458" duration="2171000" />
-      <workItem from="1568165213944" duration="890000" />
+      <workItem from="1568165213944" duration="13662000" />
     </task>
     <servers />
   </component>
@@ -742,7 +762,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71948000" />
+    <option name="totallyTimeSpent" value="84720000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -760,10 +780,10 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25747862" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18589744" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21278942" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25267094" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="News Feed" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -771,13 +791,14 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32855567" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3969129" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09812569" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16538037" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2409188" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32855567" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23594266" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14529915" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Reviews" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="BPMNPalette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -786,7 +807,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -843,58 +863,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/java-basic/pom.xml" />
-    <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reflect-demo/src/main/java/com/leh/ClassTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/jre/lib/rt.jar!/sun/misc/Lock.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/concurrent/locks/Lock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="166" column="17" lean-forward="false" selection-start-line="166" selection-start-column="17" selection-end-line="166" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/lock/UnReentrant.java" />
-    <entry file="file://$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/classloader/UnReentrant.java" />
-    <entry file="file://$PROJECT_DIR$/classloader-demo/src/main/java/com/leh/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/UUID.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="385" column="0" lean-forward="false" selection-start-line="385" selection-start-column="0" selection-end-line="385" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/repository/org/openjdk/jol/jol-core/0.8/jol-core-0.8.pom">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1794">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classloader-demo/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -974,20 +942,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/currency-demo/src/test/java/com/leh/guava/Java8Future.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-23">
-          <caret line="11" column="44" lean-forward="false" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/currency-demo/src/test/java/com/leh/guava/GuavaListAndMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="177" column="5" lean-forward="true" selection-start-line="177" selection-start-column="5" selection-end-line="177" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/currency-demo/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="419">
@@ -1014,6 +968,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1029,6 +984,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1120,13 +1078,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="86">
           <caret line="856" column="18" lean-forward="false" selection-start-line="856" selection-start-column="18" selection-end-line="856" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/concurrent/locks/ReentrantLock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="223" column="13" lean-forward="true" selection-start-line="223" selection-start-column="13" selection-end-line="223" selection-end-column="13" />
+          <folding>
+            <element signature="e#32644#32645#0" expanded="false" />
+            <element signature="e#32694#32695#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1134,20 +1089,66 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="981">
           <caret line="913" column="16" lean-forward="false" selection-start-line="913" selection-start-column="16" selection-end-line="913" selection-end-column="16" />
+          <folding>
+            <element signature="e#36709#36710#0" expanded="false" />
+            <element signature="e#36767#36768#0" expanded="false" />
+            <element signature="e#37304#37305#0" expanded="false" />
+            <element signature="e#37347#37348#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/concurrent/locks/LockSupport.java">
+    <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/syncdemo/BiasedLockDelay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="171" column="23" lean-forward="false" selection-start-line="171" selection-start-column="23" selection-end-line="171" selection-end-column="23" />
+        <state relative-caret-position="1541">
+          <caret line="68" column="79" lean-forward="false" selection-start-line="68" selection-start-column="48" selection-end-line="68" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/syncdemo/BiasedLock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="33" column="57" lean-forward="false" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/syncdemo/GcMark.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="42" column="9" lean-forward="false" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/syncdemo/HeavyWeightLock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="42" column="46" lean-forward="false" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/concurrent/Semaphore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="155" column="22" lean-forward="false" selection-start-line="155" selection-start-column="13" selection-end-line="155" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/jre/lib/rt.jar!/sun/misc/Unsafe.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5980">
+        <state relative-caret-position="242">
           <caret line="305" column="32" lean-forward="false" selection-start-line="305" selection-start-column="32" selection-end-line="305" selection-end-column="32" />
           <folding>
             <marker date="1526265745741" expanded="false" signature="0:104" ph="/.../" />
@@ -1230,50 +1231,128 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/concurrent/Semaphore.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/concurrent/locks/ReentrantLock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2783">
-          <caret line="155" column="22" lean-forward="false" selection-start-line="155" selection-start-column="13" selection-end-line="155" selection-end-column="22" />
+        <state relative-caret-position="391">
+          <caret line="105" column="20" lean-forward="true" selection-start-line="105" selection-start-column="13" selection-end-line="105" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/syncdemo/HeavyWeightLock.java">
+    <entry file="file://$PROJECT_DIR$/currency-demo/src/test/java/com/leh/guava/GuavaListAndMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="943">
-          <caret line="42" column="46" lean-forward="false" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
+        <state relative-caret-position="574">
+          <caret line="177" column="5" lean-forward="true" selection-start-line="177" selection-start-column="5" selection-end-line="177" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/syncdemo/GcMark.java">
+    <entry file="file://$PROJECT_DIR$/currency-demo/src/test/java/com/leh/guava/Java8Future.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="943">
-          <caret line="42" column="9" lean-forward="false" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+        <state relative-caret-position="23">
+          <caret line="11" column="44" lean-forward="false" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/syncdemo/BiasedLockDelay.java">
+    <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/CurrencyLockDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1541">
-          <caret line="68" column="79" lean-forward="false" selection-start-line="68" selection-start-column="48" selection-end-line="68" selection-end-column="79" />
+        <state relative-caret-position="115">
+          <caret line="11" column="32" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/syncdemo/BiasedLock.java">
+    <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/SleepSpinLock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="33" column="57" lean-forward="false" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
+        <state relative-caret-position="253">
+          <caret line="11" column="9" lean-forward="false" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/CurrencyNoLockDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+        <state relative-caret-position="529">
+          <caret line="53" column="5" lean-forward="true" selection-start-line="45" selection-start-column="4" selection-end-line="53" selection-end-column="5" />
+          <folding>
+            <element signature="e#208#328#0" expanded="true" />
+            <element signature="e#327#328#0" expanded="true" />
+            <element signature="e#378#498#0" expanded="true" />
+            <element signature="e#497#498#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/YieldSpinLock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="32" lean-forward="false" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+          <folding>
+            <element signature="e#845#846#0" expanded="true" />
+            <element signature="e#871#872#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/ParkDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1104">
+          <caret line="48" column="8" lean-forward="false" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/SpinLockDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1265">
+          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/Spin4Lock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="49" column="9" lean-forward="true" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+          <folding>
+            <element signature="e#1260#1261#0" expanded="true" />
+            <element signature="e#1286#1287#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/ParkSpinLockDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="39" column="21" lean-forward="false" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/Queue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="198" column="6" lean-forward="false" selection-start-line="198" selection-start-column="6" selection-end-line="198" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/concurrent/locks/LockSupport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="805">
+          <caret line="119" column="13" lean-forward="false" selection-start-line="119" selection-start-column="13" selection-end-line="119" selection-end-column="13" />
+          <folding>
+            <element signature="e#10983#10984#0" expanded="true" />
+            <element signature="e#11021#11022#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/ParkSpinLock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
           <folding />
         </state>
       </provider>
