@@ -1,6 +1,6 @@
-package com.leh.lock.syncdemo;
+package com.leh.juc.lock.syncdemo;
 
-import com.leh.lock.MyLock;
+import com.leh.juc.lock.MyLock;
 import org.openjdk.jol.info.ClassLayout;
 
 /**
@@ -49,7 +49,7 @@ public class BiasedLockDelay {
     /*
         不设置vm参数 ----》10100000  ------》输出锁状态 00 轻量级锁  而不是 偏向锁
         output:
-        main>>>>>>>>>>>>com.leh.lock.MyLock object internals:
+        main>>>>>>>>>>>>MyLock object internals:
          OFFSET  SIZE   TYPE DESCRIPTION                               VALUE
               0     4        (object header)                           a0 f8 68 03 (10100000 11111000 01101000 00000011) (57211040)
               4     4        (object header)                           00 00 00 00 (00000000 00000000 00000000 00000000) (0)

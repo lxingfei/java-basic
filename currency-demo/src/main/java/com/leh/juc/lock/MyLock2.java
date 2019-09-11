@@ -1,4 +1,4 @@
-package com.leh.lock;
+package com.leh.juc.lock;
 
 /**
  * @Auther: leh

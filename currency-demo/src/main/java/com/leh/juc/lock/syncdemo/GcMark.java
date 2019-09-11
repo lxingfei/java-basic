@@ -1,6 +1,6 @@
-package com.leh.lock.syncdemo;
+package com.leh.juc.lock.syncdemo;
 
-import com.leh.lock.MyLock;
+import com.leh.juc.lock.MyLock;
 import org.openjdk.jol.info.ClassLayout;
 
 /**
@@ -60,7 +60,7 @@ public class GcMark {
         lock 锁标志位 2位 最多能表示4个状态 怎么去表示5种锁状态？
 
 
-        com.leh.lock.MyLock2 object internals:
+        MyLock2 object internals:
          OFFSET  SIZE     TYPE DESCRIPTION                               VALUE
               0     4          (object header)                           01 00 00 00 (00000001 00000000 00000000 00000000) (1)
               4     4          (object header)                           00 00 00 00 (00000000 00000000 00000000 00000000) (0)

@@ -1,7 +1,7 @@
-package com.leh.lock.syncdemo;
+package com.leh.juc.lock.syncdemo;
 
-import com.leh.lock.MyLock;
-import com.leh.lock.MyLock2;
+import com.leh.juc.lock.MyLock2;
+import com.leh.juc.lock.MyLock;
 import org.openjdk.jol.info.ClassLayout;
 
 /**
@@ -44,7 +44,7 @@ public class WhereObjectLockedDemo {
 
          /* 64位 jvm 规范 一个对象的大小是8的整数倍
 
-        com.leh.lock.MyLock object internals:
+        MyLock object internals:
          OFFSET  SIZE   TYPE DESCRIPTION                                        VALUE
               0     4        (object header)     -->对象头                      01 00 00 00 (00000001 00000000 00000000 00000000) (1)
               4     4        (object header)     -->对象头                      00 00 00 00 (00000000 00000000 00000000 00000000) (0)
@@ -60,7 +60,7 @@ public class WhereObjectLockedDemo {
         System.out.println(ClassLayout.parseInstance(lock2).toPrintable());
 
         /*
-            com.leh.lock.MyLock2 object internals:
+            MyLock2 object internals:
              OFFSET  SIZE     TYPE DESCRIPTION                               VALUE
                   0     4          (object header)                           01 00 00 00 (00000001 00000000 00000000 00000000) (1)
                   4     4          (object header)                           00 00 00 00 (00000000 00000000 00000000 00000000) (0)

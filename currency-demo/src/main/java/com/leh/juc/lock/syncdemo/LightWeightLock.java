@@ -1,19 +1,17 @@
-package com.leh.lock.syncdemo;
+package com.leh.juc.lock.syncdemo;
 
-import com.leh.lock.MyLock;
+import com.leh.juc.lock.MyLock;
 import org.openjdk.jol.info.ClassLayout;
 
 /**
  * @Auther: leh
- * @Date: 2019/9/4 17:26
- * @Description:synchronized原理 --偏向锁
- *
- * 对象头 64bit 组成
- *          如何存处id --》CAS替换
- *          线程id     时代，朝代           分代年龄   是否偏向       锁标志位
- * //  JavaThread*:54 epoch:2 cms_free:1 age:4    biased_lock:1 lock:2 (COOPs && biased object)
+ * @Date: 2019/9/4 17:26 main线程中代码顺序执行
+ * @Description:synchronized原理 --轻量级锁
+ * * 对象头 64bit 组成
+ *        前62位 直接存了一个线程的指针并指向一个record
+ *        ptr_to_lock_record:62                     lock:2
  */
-public class BiasedLock {
+public class LightWeightLock {
 
     static MyLock lock = new MyLock();
 
@@ -22,40 +20,31 @@ public class BiasedLock {
 
         System.out.println("-------------------start-----------------------");
 
+
         //转16进制  jvm得到的hashcode
         System.out.println(Integer.toHexString(lock.hashCode()));
 
 
-        System.out.println(ClassLayout.parseInstance(lock).toPrintable());
+        System.out.println(Thread.currentThread().getName() + "》》》" + ClassLayout.parseInstance(lock).toPrintable());
 
         synchronized (lock) {                   // ------------------------ 1
-
                                                 /*
                                                     当main线程第一次执行到这里对lock加锁，没有竞争 --》加偏向锁 --》对象头的64bit会发生变化
                                                     通过CAS将上锁的线程id 存到对象头中
                                                  */
 
-            System.out.println(Thread.currentThread().getName() + "》》》lock ing one ");
-            System.out.println(ClassLayout.parseInstance(lock).toPrintable());
+            System.out.println(Thread.currentThread().getName() + "》》》lock ing");
+            System.out.println(Thread.currentThread().getName() + "》》》" + ClassLayout.parseInstance(lock).toPrintable());
         }
 
-        synchronized (lock) {                   // ------------------------ 2
+        new Thread(() -> {
+            test();                             // ------------------------ 2
+
                                                 /*
-                                                    当 main线程第二次执行到这里就不会基于CAS上锁，直接对比当前线程id与lock对象里面
-                                                    存的线程id 是否相同，若相同，直接拿到锁，直接执行同步代码，
-                                                    不会执行任何操作系统级别甚至cpu级别的任何指令，
-                                                    仅做了简单的对比判断，甚至认为根本没有加锁 ==》 等同于3处代码
+                                                    当存在另外一个线程交替获取同一把锁且没有竞争，此时 由偏向锁  膨胀为 轻量级锁
 
                                                  */
-            System.out.println(Thread.currentThread().getName() + "》》》lock ing two ");
-            System.out.println(ClassLayout.parseInstance(lock).toPrintable());
-        }
-
-        //synchronized (lock) {                   // ------------------------ 3
-
-            System.out.println(Thread.currentThread().getName() + "》》》lock ing three ");
-
-        //}
+        }).start();
 
 
         System.out.println("-------------------end-----------------------");
@@ -85,12 +74,10 @@ public class BiasedLock {
      *
      * 1.6 --》 os mutex
      * 1.6 --》 没有资源竞争的同步代码 --》偏向锁  只有一个线程调用
-     *
-     *
      * 1.6 --》 有多个线程执行 {
      *
      *     1》多个线程交替执行 t1 执行完 t2执行 。。。不存在同时竞争 ---》轻量级锁
-     *
+     *        main线程中代码顺序执行 。先执行 1 处同步代码块 ，执行完，再执行 2处 创建线程执行 test方法
      *
      *     2》多个线程同时执行（竞争）  ----》 重量级锁
      *
@@ -100,6 +87,13 @@ public class BiasedLock {
         }
      *
      */
+
+    public static void test(){
+        synchronized (lock){
+            System.out.println(Thread.currentThread().getName() + "》》》》lock ing");
+            System.out.println(Thread.currentThread().getName() + "》》》" + ClassLayout.parseInstance(lock).toPrintable());
+        }
+    }
 
 
 }
