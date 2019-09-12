@@ -12,7 +12,7 @@ import java.util.Queue;
  * @Description: 要解决自旋锁的性能问题，必须让竞争锁失败的线程不空转
  * 而是在获取不到锁的时候将cpu给让出来。
  * <p>
- * 缺点：
+ * 这种方法就比较完美，看看大师是如何利用这种机制来实现同步的；JDK的JUC包下面ReentrantLock类的原理就是利用了这种机制；
  */
 public class ParkSpinLock {
 
