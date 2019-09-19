@@ -8,6 +8,8 @@ package com.leh.juc.waitnotify;
  * execution) for the specified number of milliseconds, subject to
  * the precision and accuracy of system timers and schedulers. The thread
  * does not lose ownership of any monitors.
+ *
+ *
  */
 public class InterruptSleepDemo {
     public static void main(String[] args) throws InterruptedException {
