@@ -1,4 +1,4 @@
-package com.leh.juc.semaphore;
+package com.leh.juc.concurrentutils.semaphore;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;

@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="classloader-demo" />
         <module name="currency-demo" />
+        <module name="java8-feature-demo" />
         <module name="reflect-demo" />
         <module name="serialize-demo" />
       </profile>
@@ -16,6 +17,7 @@
       <module name="classloader-demo" target="1.8" />
       <module name="currency-demo" target="1.8" />
       <module name="java-basic" target="1.8" />
+      <module name="java8-feature-demo" target="1.8" />
       <module name="reflect-demo" target="1.8" />
       <module name="serialize-demo" target="1.8" />
     </bytecodeTargetLevel>

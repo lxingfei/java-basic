@@ -1,4 +1,4 @@
-package com.leh.juc.semaphore;
+package com.leh.juc.concurrentutils.semaphore;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -31,14 +31,14 @@ public class SemaPhoreDemo {
         final Semaphore semp = new Semaphore(5);
         // 模拟20个客户端访问
         for (int index = 0; index < 20; index++) {
-            final int NO = index;
+            final int num = index;
             Runnable run = new Runnable() {
                 @Override
                 public void run() {
                     try {
                         // 获取许可
                         semp.acquire();
-                        System.out.println("Accessing: " + NO);
+                        System.out.println("Accessing: " + num);
                         Thread.sleep((long) (Math.random() * 6000));
                         // 访问完后，释放
                         semp.release();
