@@ -26,6 +26,7 @@ public class Playground {
 
     public static void main(String[] args) {
         Executor executor = Executors.newCachedThreadPool();
+
         Playground playground = new Playground();
         Runnable runnable = () -> {
             try {

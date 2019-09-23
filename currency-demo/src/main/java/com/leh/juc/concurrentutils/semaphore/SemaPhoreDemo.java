@@ -1,8 +1,8 @@
 package com.leh.juc.concurrentutils.semaphore;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Semaphore;
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
+
+import java.util.concurrent.*;
 
 /**
  * @Auther: leh
@@ -25,8 +25,25 @@ import java.util.concurrent.Semaphore;
  */
 public class SemaPhoreDemo {
     public static void main(String[] args) {
-        // 线程池
-        ExecutorService exec = Executors.newCachedThreadPool();
+
+
+        /**
+         *
+         * 避免使用 Executors创建线程池，使用手动创建线程池 ThreadPoolExecutor，效果更好
+         *
+         * 使用 ThreadPoolExecutor 可以更清楚的明白线程池的运行规则，规避资源耗尽的风险
+         *
+         * 使用Executors创建线程池 弊端：
+         * newSingleThreadExecutor 和 newFixedThreadPool  堆积的请求队列可能会占用非常大的内存，导致OOM  -- LinkedBlockingQueue
+         * newCachedThreadPool 和 newScheduledThreadPool  线程数最大时Inter.MAX_VALUE ，可能会创建非常多的线程导致OOM
+         */
+
+        ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("demo-pool-%d").build();
+
+        ExecutorService executorService = new ThreadPoolExecutor(5, 200,
+                0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>(1024),
+                namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
+
         // 只能5个线程同时访问
         final Semaphore semp = new Semaphore(5);
         // 模拟20个客户端访问
@@ -49,10 +66,10 @@ public class SemaPhoreDemo {
                     }
                 }
             };
-            exec.execute(run);
+            executorService.execute(run);
         }
         // 退出线程池
-        exec.shutdown();
+        executorService.shutdown();
     }
 
     /**

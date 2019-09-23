@@ -13,6 +13,7 @@ import java.util.Map;
  */
 public class Java8Future {
     public static void main(String[] args) {
+
         Map<String, Integer> map = ImmutableMap.of("0", 3, "1", 8, "0.29", 7, "1.67", 3);
         System.out.println("原始的map：" + map);
         System.out.println("根据map的key降序：" + sortByKey(map, true));
