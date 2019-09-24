@@ -1,8 +1,5 @@
-package com.wangwenjun.java8;
+package com.leh.model;
 
-/**
- * Created by wangwenjun on 2016/10/12.
- */
 public class Apple {
 
     private String color;

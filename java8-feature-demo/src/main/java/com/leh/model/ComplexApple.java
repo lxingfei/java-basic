@@ -1,10 +1,6 @@
-package com.wangwenjun.java8;
+package com.leh.model;
 
-/**
- * Created by wangwenjun on 2016/10/16.
- */
-public class ComplexApple
-{
+public class ComplexApple {
 
     private String color;
 

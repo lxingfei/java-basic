@@ -36,6 +36,7 @@ public class FuncInterfaceApplication {
 
         FuncInterfaceDefination demo5 = (a) -> a + a;//a + a 表达式
         System.out.println("更优化的方式，JDK1.8之后使用lamda,输出:" + demo5.teach("java8特性"));
+        FuncInterfaceDefination demo6 = a -> a + a;//a + a 表达式
 
     }
 }

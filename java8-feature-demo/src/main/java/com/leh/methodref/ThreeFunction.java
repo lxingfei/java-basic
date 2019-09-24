@@ -1,8 +1,5 @@
-package com.wangwenjun.java8;
+package com.leh.methodref;
 
-/**
- * Created by wangwenjun on 2016/10/16.
- */
 @FunctionalInterface
 public interface ThreeFunction<T, U, K, R> {
 

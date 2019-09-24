@@ -1,15 +1,14 @@
-package com.wangwenjun.java8;
+package com.leh.lamdademo;
+
+import com.leh.model.Apple;
 
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-/**
- * Created by wangwenjun on 2016/10/12.
- */
+
 public class LambdaExpression {
 
     public static void main(String[] args) {
@@ -31,10 +30,11 @@ public class LambdaExpression {
 
         Predicate<Apple> p = (Apple a) -> a.getColor().equals("green");
 
-        Runnable r = ()->{};
+        Runnable r = () -> {
+        };
 
 
-        Function<Apple,Boolean> f = (a)->a.getColor().equals("green");
+        Function<Apple, Boolean> f = (a) -> a.getColor().equals("green");
 
     }
 }

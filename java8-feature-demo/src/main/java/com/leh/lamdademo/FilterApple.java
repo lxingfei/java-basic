@@ -1,4 +1,4 @@
-package com.leh.filter;
+package com.leh.lamdademo;
 
 import com.leh.model.Apple;
 
@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 应对变化
+ * lamda的引入
  */
 public class FilterApple {
 
