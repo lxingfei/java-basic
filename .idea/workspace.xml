@@ -2,138 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df08890e-142c-41f6-84a3-9f8742d1d702" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/classloader-demo/target/classes/com/leh/classloader/CompileDemo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/classloader-demo/target/classes/com/leh/classloader/LoadOrderDemo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/classloader-demo/target/classes/com/leh/jvm/DeadLockDemo1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/classloader-demo/target/classes/com/leh/jvm/DeadLockDemo2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/classloader-demo/target/classes/com/leh/jvm/FakeDeadLock.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/classloader-demo/target/classes/com/leh/jvm/OutOfMemoryDump.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/classloader-demo/target/classes/com/leh/model/User.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/classloader-demo/target/classloader-demo-1.0-SNAPSHOT.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/classloader-demo/target/maven-archiver/pom.properties" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/classloader-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/classloader-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/concurrentutils/countdownlatch/CountDownLatchDemo$BossThread.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/concurrentutils/countdownlatch/CountDownLatchDemo$EmpleoyeeThread.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/concurrentutils/countdownlatch/CountDownLatchDemo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/concurrentutils/cyclicbarrier/CyclicBarrierDemo$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/concurrentutils/cyclicbarrier/CyclicBarrierDemo$CyclicBarrierThread.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/concurrentutils/cyclicbarrier/CyclicBarrierDemo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/concurrentutils/semaphore/Playground.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/concurrentutils/semaphore/SemaPhoreDemo$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/concurrentutils/semaphore/SemaPhoreDemo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/MyLock.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/MyLock2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/CurrencyLockDemo$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/CurrencyLockDemo$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/CurrencyLockDemo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/CurrencyNoLockDemo$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/CurrencyNoLockDemo$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/CurrencyNoLockDemo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/someway4lock/ParkDemo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/someway4lock/ParkSpinLock.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/someway4lock/ParkSpinLockDemo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/someway4lock/SleepSpinLock.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/someway4lock/Spin4Lock.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/someway4lock/SpinLockDemo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/someway4lock/YieldSpinLock.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/syncdemo/BiasedLock.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/syncdemo/BiasedLockDelay.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/syncdemo/GcMark.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/syncdemo/HeavyWeightLock.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/syncdemo/LightWeightLock.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/syncdemo/NoLock.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/syncdemo/WhereObjectLockedDemo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/waitnotify/InterruptSleepDemo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/waitnotify/SleepDemo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/waitnotify/WaitAndNotifyDemo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/currency-demo-1.0-SNAPSHOT.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/maven-archiver/pom.properties" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/test-classes/com/leh/guava/GuavaListAndMap.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/currency-demo/target/test-classes/com/leh/guava/Java8Future.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/InterfaceDefinationDemo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/SmsMsg.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/SmsMsgImpl.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/funcinterfacedemo/FuncInterfaceApplication$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/funcinterfacedemo/FuncInterfaceApplication.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/funcinterfacedemo/FuncInterfaceDefination.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/funcinterfacedemo/MultiInheritance.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/funcinterfacedemo/MyInterface1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/funcinterfacedemo/MyInterface2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/generic/Banana.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/generic/ClassName.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/generic/Fruit.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/generic/Person.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/javautilfunction/Demo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/javautilfunction/FunctionDemo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/FilterApple$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/FilterApple$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/FilterApple$AppleFilter.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/FilterApple$GreenAnd160WeightFilter.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/FilterApple$YellowLess150WeightFilter.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/FilterApple.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/LambdaExpression$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/LambdaExpression.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/LambdaUsage$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/LambdaUsage$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/LambdaUsage$Test.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/LambdaUsage.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/SortListDemo$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/SortListDemo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/methodref/DemoInterface1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/methodref/DemoInterface2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/methodref/DemoInterface3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/methodref/DemoInterface4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/methodref/MethodRefDemo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/methodref/MethodReference$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/methodref/MethodReference.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/methodref/Person.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/methodref/ThreeFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/model/Apple.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/model/ComplexApple.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/model/Dish$Type.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/model/Dish.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/streamdemo/CreateStream$Obj.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/streamdemo/CreateStream$ObjSupplier.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/streamdemo/CreateStream.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/streamdemo/StreamFilter.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/streamdemo/StreamMap.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/java8-feature-demo-1.0-SNAPSHOT.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/maven-archiver/pom.properties" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/serialize-demo-1.0-SNAPSHOT.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/surefire-reports/TEST-com.leh.basic.DecimalFormatTest.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/surefire-reports/com.leh.basic.DecimalFormatTest.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/test-classes/com/leh/basic/DecimalFormatTest.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/reflect-demo/target/classes/com/leh/ClassTest.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/reflect-demo/target/classes/com/leh/ConstructorDemo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/reflect-demo/target/classes/com/leh/FieldTest.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/reflect-demo/target/classes/com/leh/ListTest.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/reflect-demo/target/classes/com/leh/MainMethodTest.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/reflect-demo/target/classes/com/leh/beans/Cat.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/reflect-demo/target/maven-archiver/pom.properties" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/reflect-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/reflect-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/reflect-demo/target/reflect-demo-1.0-SNAPSHOT.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/serialize-demo/target/classes/com/leh/SerializeStorage.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/serialize-demo/target/classes/com/leh/SerializeStorageSameFile.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/serialize-demo/target/classes/com/leh/SerializeWithoutStatic.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/serialize-demo/target/maven-archiver/pom.properties" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/serialize-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/serialize-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/serialize-demo/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/serialize-demo/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/serialize-demo/target/serialize-demo-1.0-SNAPSHOT.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/serialize-demo/target/surefire-reports/TEST-com.leh.basic.DecimalFormatTest.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/serialize-demo/target/surefire-reports/com.leh.basic.DecimalFormatTest.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/serialize-demo/target/test-classes/com/leh/basic/DecimalFormatTest.class" afterPath="" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/linux-demo/doc/虚拟机安装 jdk tomcat实践.pdf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/linux-demo/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/classloader-demo/target/" />
     <ignored path="$PROJECT_DIR$/reflect-demo/target/" />
@@ -141,6 +12,7 @@
     <ignored path="$PROJECT_DIR$/currency-demo/target/" />
     <ignored path="$PROJECT_DIR$/serialize-demo/target/" />
     <ignored path="$PROJECT_DIR$/java8-feature-demo/target/" />
+    <ignored path="$PROJECT_DIR$/linux-demo/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -150,11 +22,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+            <state relative-caret-position="253">
+              <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/linux-demo/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -199,7 +91,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/SleepSpinLock.java" />
         <option value="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/ParkDemo.java" />
         <option value="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/ParkSpinLockDemo.java" />
         <option value="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/lock/reentrantdemo/someway4lock/ParkSpinLock.java" />
@@ -216,7 +107,6 @@
         <option value="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/waitnotify/SleepDemo.java" />
         <option value="$PROJECT_DIR$/currency-demo/src/main/java/com/leh/juc/concurrentutils/countdownlatch/CountDownLatchDemo.java" />
         <option value="$PROJECT_DIR$/java8-feature-demo/pom.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/java8-feature-demo/src/main/java/com/leh/SmsMsg.java" />
         <option value="$PROJECT_DIR$/java8-feature-demo/src/main/java/com/leh/InterfaceDemo.java" />
         <option value="$PROJECT_DIR$/java8-feature-demo/src/main/java/com/leh/InterfaceDefinationDemo.java" />
@@ -250,6 +140,8 @@
         <option value="$PROJECT_DIR$/java8-feature-demo/src/main/java/com/leh/model/Dish.java" />
         <option value="$PROJECT_DIR$/java8-feature-demo/src/main/java/com/leh/streamdemo/StreamMap.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/linux-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -323,45 +215,43 @@
             <path>
               <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
               <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="classloader-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="linux-demo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
               <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="java8-feature-demo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="java8-feature-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="linux-demo" type="462c0819:PsiDirectoryNode" />
               <item name="doc" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
               <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="java8-feature-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="linux-demo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
               <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="reflect-demo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="serialize-demo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="serialize-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="linux-demo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
+              <item name="linux-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
+              <item name="linux-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
@@ -449,11 +339,11 @@
       <recent name="com.leh.lock.syncdemo" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ideawork\java-basic\linux-demo\doc" />
+      <recent name="D:\ideawork\java-basic" />
       <recent name="D:\ideawork\java-basic\java8-feature-demo\src\main\java\com\leh\model" />
       <recent name="D:\ideawork\java-basic\java8-feature-demo\src\main\java\com\leh\methodref" />
       <recent name="D:\ideawork\java-basic\java8-feature-demo\src\main\java\com\leh\lamdademo" />
-      <recent name="D:\ideawork\java-basic\java8-feature-demo\src\main\java\com\leh\filter" />
-      <recent name="D:\ideawork\java-basic\currency-demo\doc" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -689,7 +579,7 @@
       <workItem from="1568799659965" duration="59831000" />
       <workItem from="1569380382716" duration="5100000" />
       <workItem from="1569391712345" duration="2730000" />
-      <workItem from="1569500841323" duration="133000" />
+      <workItem from="1569500841323" duration="514000" />
     </task>
     <servers />
   </component>
@@ -726,7 +616,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179366000" />
+    <option name="totallyTimeSpent" value="179747000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -757,10 +647,10 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3665208" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3665208" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19584244" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15317287" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18162394" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18162394" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Reviews" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="BPMNPalette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -835,27 +725,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/lang/reflect/WildcardType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="33" column="40" lean-forward="false" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/lang/reflect/ParameterizedType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="46" column="46" lean-forward="false" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/InterfaceDefinationDemo.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/funcinterfacedemo/FuncInterfaceDefination.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1181,8 +1050,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+        <state relative-caret-position="253">
+          <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linux-demo/src/main/java/com/leh/SerializeStorage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linux-demo/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
           <folding />
         </state>
       </provider>
