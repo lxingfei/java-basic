@@ -7,3 +7,8 @@
 *.iml
 /target/
 .gitignore
+/serialize-demo/target/
+/reflect-demo/target/
+/java8-feature-demo/target/
+/currency-demo/target/
+/classloader-demo/target/

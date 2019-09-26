@@ -2,11 +2,138 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df08890e-142c-41f6-84a3-9f8742d1d702" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/java8-feature-demo/src/main/java/com/leh/model/Dish.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java8-feature-demo/src/main/java/com/leh/streamdemo/CreateStream.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java8-feature-demo/src/main/java/com/leh/streamdemo/StreamFilter.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java8-feature-demo/src/main/java/com/leh/streamdemo/StreamMap.java" />
       <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change beforePath="$PROJECT_DIR$/classloader-demo/target/classes/com/leh/classloader/CompileDemo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/classloader-demo/target/classes/com/leh/classloader/LoadOrderDemo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/classloader-demo/target/classes/com/leh/jvm/DeadLockDemo1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/classloader-demo/target/classes/com/leh/jvm/DeadLockDemo2.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/classloader-demo/target/classes/com/leh/jvm/FakeDeadLock.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/classloader-demo/target/classes/com/leh/jvm/OutOfMemoryDump.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/classloader-demo/target/classes/com/leh/model/User.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/classloader-demo/target/classloader-demo-1.0-SNAPSHOT.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/classloader-demo/target/maven-archiver/pom.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/classloader-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/classloader-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/concurrentutils/countdownlatch/CountDownLatchDemo$BossThread.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/concurrentutils/countdownlatch/CountDownLatchDemo$EmpleoyeeThread.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/concurrentutils/countdownlatch/CountDownLatchDemo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/concurrentutils/cyclicbarrier/CyclicBarrierDemo$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/concurrentutils/cyclicbarrier/CyclicBarrierDemo$CyclicBarrierThread.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/concurrentutils/cyclicbarrier/CyclicBarrierDemo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/concurrentutils/semaphore/Playground.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/concurrentutils/semaphore/SemaPhoreDemo$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/concurrentutils/semaphore/SemaPhoreDemo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/MyLock.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/MyLock2.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/CurrencyLockDemo$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/CurrencyLockDemo$2.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/CurrencyLockDemo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/CurrencyNoLockDemo$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/CurrencyNoLockDemo$2.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/CurrencyNoLockDemo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/someway4lock/ParkDemo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/someway4lock/ParkSpinLock.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/someway4lock/ParkSpinLockDemo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/someway4lock/SleepSpinLock.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/someway4lock/Spin4Lock.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/someway4lock/SpinLockDemo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/reentrantdemo/someway4lock/YieldSpinLock.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/syncdemo/BiasedLock.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/syncdemo/BiasedLockDelay.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/syncdemo/GcMark.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/syncdemo/HeavyWeightLock.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/syncdemo/LightWeightLock.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/syncdemo/NoLock.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/lock/syncdemo/WhereObjectLockedDemo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/waitnotify/InterruptSleepDemo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/waitnotify/SleepDemo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/classes/com/leh/juc/waitnotify/WaitAndNotifyDemo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/currency-demo-1.0-SNAPSHOT.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/maven-archiver/pom.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/test-classes/com/leh/guava/GuavaListAndMap.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/currency-demo/target/test-classes/com/leh/guava/Java8Future.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/InterfaceDefinationDemo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/SmsMsg.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/SmsMsgImpl.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/funcinterfacedemo/FuncInterfaceApplication$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/funcinterfacedemo/FuncInterfaceApplication.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/funcinterfacedemo/FuncInterfaceDefination.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/funcinterfacedemo/MultiInheritance.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/funcinterfacedemo/MyInterface1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/funcinterfacedemo/MyInterface2.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/generic/Banana.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/generic/ClassName.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/generic/Fruit.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/generic/Person.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/javautilfunction/Demo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/javautilfunction/FunctionDemo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/FilterApple$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/FilterApple$2.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/FilterApple$AppleFilter.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/FilterApple$GreenAnd160WeightFilter.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/FilterApple$YellowLess150WeightFilter.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/FilterApple.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/LambdaExpression$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/LambdaExpression.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/LambdaUsage$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/LambdaUsage$2.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/LambdaUsage$Test.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/LambdaUsage.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/SortListDemo$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/lamdademo/SortListDemo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/methodref/DemoInterface1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/methodref/DemoInterface2.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/methodref/DemoInterface3.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/methodref/DemoInterface4.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/methodref/MethodRefDemo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/methodref/MethodReference$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/methodref/MethodReference.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/methodref/Person.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/methodref/ThreeFunction.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/model/Apple.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/model/ComplexApple.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/model/Dish$Type.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/model/Dish.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/streamdemo/CreateStream$Obj.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/streamdemo/CreateStream$ObjSupplier.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/streamdemo/CreateStream.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/streamdemo/StreamFilter.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/classes/com/leh/streamdemo/StreamMap.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/java8-feature-demo-1.0-SNAPSHOT.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/maven-archiver/pom.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/serialize-demo-1.0-SNAPSHOT.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/surefire-reports/TEST-com.leh.basic.DecimalFormatTest.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/surefire-reports/com.leh.basic.DecimalFormatTest.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java8-feature-demo/target/test-classes/com/leh/basic/DecimalFormatTest.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/reflect-demo/target/classes/com/leh/ClassTest.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/reflect-demo/target/classes/com/leh/ConstructorDemo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/reflect-demo/target/classes/com/leh/FieldTest.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/reflect-demo/target/classes/com/leh/ListTest.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/reflect-demo/target/classes/com/leh/MainMethodTest.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/reflect-demo/target/classes/com/leh/beans/Cat.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/reflect-demo/target/maven-archiver/pom.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/reflect-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/reflect-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/reflect-demo/target/reflect-demo-1.0-SNAPSHOT.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/serialize-demo/target/classes/com/leh/SerializeStorage.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/serialize-demo/target/classes/com/leh/SerializeStorageSameFile.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/serialize-demo/target/classes/com/leh/SerializeWithoutStatic.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/serialize-demo/target/maven-archiver/pom.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/serialize-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/serialize-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/serialize-demo/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/serialize-demo/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/serialize-demo/target/serialize-demo-1.0-SNAPSHOT.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/serialize-demo/target/surefire-reports/TEST-com.leh.basic.DecimalFormatTest.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/serialize-demo/target/surefire-reports/com.leh.basic.DecimalFormatTest.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/serialize-demo/target/test-classes/com/leh/basic/DecimalFormatTest.class" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/classloader-demo/target/" />
     <ignored path="$PROJECT_DIR$/reflect-demo/target/" />
@@ -23,116 +150,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CreateStream.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/java8-feature-demo/src/main/java/com/leh/streamdemo/CreateStream.java">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1644">
-              <caret line="115" column="7" lean-forward="false" selection-start-line="115" selection-start-column="7" selection-end-line="115" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1497#1498#0" expanded="true" />
-                <element signature="e#1557#1558#0" expanded="true" />
-                <element signature="e#3712#3713#0" expanded="true" />
-                <element signature="e#3745#3746#0" expanded="true" />
-                <element signature="e#3780#3781#0" expanded="true" />
-                <element signature="e#3815#3816#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StreamFilter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/java8-feature-demo/src/main/java/com/leh/streamdemo/StreamFilter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="16" column="69" lean-forward="false" selection-start-line="16" selection-start-column="69" selection-end-line="16" selection-end-column="69" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StreamMap.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/java8-feature-demo/src/main/java/com/leh/streamdemo/StreamMap.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="39" column="51" lean-forward="false" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Arrays.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/Arrays.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="5002" column="32" lean-forward="false" selection-start-line="5002" selection-start-column="32" selection-end-line="5002" selection-end-column="32" />
-              <folding>
-                <element signature="e#223144#223145#0" expanded="true" />
-                <element signature="e#223197#223198#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Dish.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/java8-feature-demo/src/main/java/com/leh/model/Dish.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Random.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/Random.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2277">
-              <caret line="134" column="11" lean-forward="false" selection-start-line="134" selection-start-column="11" selection-end-line="134" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Supplier.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/function/Supplier.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="40" column="17" lean-forward="false" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Stream.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/stream/Stream.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="806" column="13" lean-forward="false" selection-start-line="806" selection-start-column="13" selection-end-line="806" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UnaryOperator.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/function/UnaryOperator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="40" column="17" lean-forward="false" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Files.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/nio/file/Files.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85054">
-              <caret line="3783" column="33" lean-forward="false" selection-start-line="3783" selection-start-column="33" selection-end-line="3783" selection-end-column="33" />
+            <state relative-caret-position="161">
+              <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -223,11 +245,11 @@
         <option value="$PROJECT_DIR$/java8-feature-demo/src/main/java/com/leh/lamdademo/FilterApple.java" />
         <option value="$PROJECT_DIR$/java8-feature-demo/src/main/java/com/leh/methodref/MethodReference.java" />
         <option value="$PROJECT_DIR$/java8-feature-demo/src/main/java/com/leh/lamdademo/SortListDemo.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/java8-feature-demo/src/main/java/com/leh/streamdemo/CreateStream.java" />
         <option value="$PROJECT_DIR$/java8-feature-demo/src/main/java/com/leh/streamdemo/StreamFilter.java" />
         <option value="$PROJECT_DIR$/java8-feature-demo/src/main/java/com/leh/model/Dish.java" />
         <option value="$PROJECT_DIR$/java8-feature-demo/src/main/java/com/leh/streamdemo/StreamMap.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -291,16 +313,22 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
               <item name="java-basic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
+              <item name="classloader-demo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
+              <item name="currency-demo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
@@ -322,147 +350,6 @@
             <path>
               <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
               <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="java8-feature-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="java8-feature-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="java8-feature-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="java8-feature-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="leh" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="java8-feature-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="leh" type="462c0819:PsiDirectoryNode" />
-              <item name="funcinterfacedemo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="java8-feature-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="leh" type="462c0819:PsiDirectoryNode" />
-              <item name="generic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="java8-feature-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="leh" type="462c0819:PsiDirectoryNode" />
-              <item name="generic" type="462c0819:PsiDirectoryNode" />
-              <item name="ClassName.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
-            <path>
-              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="java8-feature-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="leh" type="462c0819:PsiDirectoryNode" />
-              <item name="methodref" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="java8-feature-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="leh" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="java8-feature-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="leh" type="462c0819:PsiDirectoryNode" />
-              <item name="streamdemo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="java8-feature-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="java8-feature-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="java8-feature-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="java8-feature-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="leh" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="java8-feature-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="leh" type="462c0819:PsiDirectoryNode" />
-              <item name="funcinterfacedemo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
               <item name="reflect-demo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -475,12 +362,6 @@
               <item name="java-basic" type="462c0819:PsiDirectoryNode" />
               <item name="serialize-demo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="serialize-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java-basic" type="b2602c69:ProjectViewProjectNode" />
@@ -542,6 +423,10 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -803,7 +688,8 @@
       <workItem from="1568768922851" duration="5952000" />
       <workItem from="1568799659965" duration="59831000" />
       <workItem from="1569380382716" duration="5100000" />
-      <workItem from="1569391712345" duration="2635000" />
+      <workItem from="1569391712345" duration="2730000" />
+      <workItem from="1569500841323" duration="133000" />
     </task>
     <servers />
   </component>
@@ -840,7 +726,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179138000" />
+    <option name="totallyTimeSpent" value="179366000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -853,7 +739,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1932" height="1047" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45424476" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -869,14 +754,13 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30209482" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19955899" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296582" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36714444" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19584244" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15325248" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18002136" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3665208" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19584244" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15317287" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18162394" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Reviews" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="BPMNPalette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -885,6 +769,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296582" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -961,9 +846,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="46" column="46" lean-forward="false" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#2945#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1014,10 +896,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
           <caret line="234" column="18" lean-forward="false" selection-start-line="234" selection-start-column="18" selection-end-line="234" selection-end-column="18" />
-          <folding>
-            <element signature="e#10065#10066#0" expanded="false" />
-            <element signature="e#10148#10149#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1032,7 +910,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="245">
           <caret line="475" column="7" lean-forward="true" selection-start-line="475" selection-start-column="7" selection-end-line="475" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1040,7 +917,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1055,7 +931,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
           <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1063,7 +938,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1078,7 +952,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="15" column="14" lean-forward="false" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1086,7 +959,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
           <caret line="48" column="6" lean-forward="false" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1094,7 +966,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3749">
           <caret line="200" column="24" lean-forward="false" selection-start-line="200" selection-start-column="24" selection-end-line="200" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1102,7 +973,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9913">
           <caret line="463" column="69" lean-forward="false" selection-start-line="463" selection-start-column="69" selection-end-line="463" selection-end-column="69" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1110,10 +980,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="27" column="30" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="e#2143#2144#0" expanded="false" />
-            <element signature="e#2220#2221#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1121,18 +987,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#527#528#0" expanded="false" />
-            <element signature="e#604#605#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="5" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1140,7 +994,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
           <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1148,7 +1001,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
           <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1156,7 +1008,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1164,22 +1015,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
           <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding>
-            <element signature="e#689#690#0" expanded="false" />
-            <element signature="e#719#720#0" expanded="false" />
-            <element signature="e#796#797#0" expanded="false" />
-            <element signature="e#827#828#0" expanded="false" />
-            <element signature="e#890#891#0" expanded="false" />
-            <element signature="e#921#922#0" expanded="false" />
-            <element signature="e#976#977#0" expanded="false" />
-            <element signature="e#1037#1038#0" expanded="false" />
-            <element signature="e#1065#1066#0" expanded="false" />
-            <element signature="e#1126#1127#0" expanded="false" />
-            <element signature="e#1154#1155#0" expanded="false" />
-            <element signature="e#1215#1216#0" expanded="false" />
-            <element signature="e#1305#1312#0" expanded="false" />
-            <element signature="e#1725#1733#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1194,7 +1029,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
           <caret line="99" column="22" lean-forward="false" selection-start-line="99" selection-start-column="22" selection-end-line="99" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1202,7 +1036,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
           <caret line="36" column="17" lean-forward="false" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1224,9 +1057,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="30" column="42" lean-forward="true" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#5586#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1248,7 +1078,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
           <caret line="79" column="63" lean-forward="false" selection-start-line="79" selection-start-column="63" selection-end-line="79" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1256,9 +1085,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3243">
           <caret line="143" column="21" lean-forward="false" selection-start-line="143" selection-start-column="21" selection-end-line="143" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#27819#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1266,10 +1092,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1334">
           <caret line="82" column="23" lean-forward="false" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="23" />
-          <folding>
-            <element signature="e#2673#2674#0" expanded="true" />
-            <element signature="e#2741#2742#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1277,7 +1099,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85054">
           <caret line="3783" column="33" lean-forward="false" selection-start-line="3783" selection-start-column="33" selection-end-line="3783" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1285,7 +1106,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="40" column="17" lean-forward="false" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1293,7 +1113,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="40" column="17" lean-forward="false" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1301,7 +1120,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2277">
           <caret line="134" column="11" lean-forward="false" selection-start-line="134" selection-start-column="11" selection-end-line="134" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1309,7 +1127,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="644">
           <caret line="51" column="57" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1317,7 +1134,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
           <caret line="228" column="29" lean-forward="false" selection-start-line="228" selection-start-column="29" selection-end-line="228" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1325,9 +1141,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="222">
           <caret line="16" column="69" lean-forward="false" selection-start-line="16" selection-start-column="69" selection-end-line="16" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1335,7 +1148,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="227">
           <caret line="806" column="13" lean-forward="false" selection-start-line="806" selection-start-column="13" selection-end-line="806" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1343,7 +1155,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1351,10 +1162,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
           <caret line="5002" column="32" lean-forward="false" selection-start-line="5002" selection-start-column="32" selection-end-line="5002" selection-end-column="32" />
-          <folding>
-            <element signature="e#223144#223145#0" expanded="true" />
-            <element signature="e#223197#223198#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1362,15 +1169,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1644">
           <caret line="115" column="7" lean-forward="false" selection-start-line="115" selection-start-column="7" selection-end-line="115" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1497#1498#0" expanded="true" />
-            <element signature="e#1557#1558#0" expanded="true" />
-            <element signature="e#3712#3713#0" expanded="true" />
-            <element signature="e#3745#3746#0" expanded="true" />
-            <element signature="e#3780#3781#0" expanded="true" />
-            <element signature="e#3815#3816#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1378,9 +1176,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="39" column="51" lean-forward="false" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
