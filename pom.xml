@@ -15,6 +15,7 @@
         <module>serialize-demo</module>
         <module>classloader-demo</module>
         <module>java8-feature-demo</module>
+        <module>netty-demo</module>
     </modules>
 
     <dependencyManagement>
