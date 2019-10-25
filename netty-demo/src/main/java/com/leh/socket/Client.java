@@ -6,7 +6,7 @@ import java.net.Socket;
 /**
  * @Auther: leh
  * @Date: 2019/10/25 10:11
- * @Description: 模拟客户端
+ * @Description: 不适用netty情况下 - 模拟客户端
  */
 public class Client {
 

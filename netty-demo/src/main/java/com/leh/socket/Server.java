@@ -7,7 +7,7 @@ import java.net.Socket;
 /**
  * @Auther: leh
  * @Date: 2019/10/25 09:42
- * @Description: 模拟客户端
+ * @Description: 不适用netty情况下 - 模拟服务端
  */
 public class Server {
 
@@ -30,9 +30,9 @@ public class Server {
     private void doStart() {
         while (true){
             try {
-                //监听客户端连接 - 阻塞的
+                //监听客户端连接 - 阻塞的 只有当一个客户端过来之后才会创建socket
                 Socket client = serverSocket.accept();
-                //接收客户端数据并返回客户端
+                //创建处理器处理接收到的客户端数据
                 new ClientHandler(client).start();
             } catch (IOException e) {
                 System.out.println("服务端socket启动异常");

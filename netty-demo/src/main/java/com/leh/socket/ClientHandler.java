@@ -14,6 +14,7 @@ public class ClientHandler {
 
     private final Socket socket;
 
+    //持有客户端socket
     public ClientHandler(Socket socket) {
         this.socket = socket;
     }
@@ -24,6 +25,7 @@ public class ClientHandler {
 
     }
 
+    //客户端与服务端通信的过程
     private void doStart() {
         try {
             InputStream in = socket.getInputStream();
@@ -33,6 +35,7 @@ public class ClientHandler {
                 while ((len = in.read(data)) != -1){
                     String message = new String(data, 0, len);
                     System.out.println("客户端传来消息: " + message);
+                    //将接收到的数据原样写回去
                     socket.getOutputStream().write(data);
                 }
             }
