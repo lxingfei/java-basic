@@ -37,15 +37,12 @@ public final class Server {
                         ch.pipeline().addLast();
                     }
                 });
-
         try {
+            //服务端创建的入口 bind()
             ChannelFuture channelFuture = bootstrap.bind(8888).sync();
             channelFuture.channel().closeFuture().sync();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-
     }
-
 }
