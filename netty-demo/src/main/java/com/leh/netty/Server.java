@@ -1,10 +1,8 @@
 package com.leh.netty;
 
+import com.leh.netty.pipeline.AuthHandler;
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
@@ -34,7 +32,9 @@ public final class Server {
 
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
-                        ch.pipeline().addLast();
+                        ch.pipeline().addLast(new AuthHandler());
+                        ch.pipeline().addLast(new ChannelInboundHandlerAdapter());
+                        ch.pipeline().addLast(new ChannelOutboundHandlerAdapter());
                     }
                 });
         try {

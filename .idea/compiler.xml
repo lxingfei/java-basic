@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="algorithm-demo" />
         <module name="classloader-demo" />
         <module name="currency-demo" />
         <module name="java8-feature-demo" />
@@ -16,6 +17,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
+      <module name="algorithm-demo" target="1.8" />
       <module name="classloader-demo" target="1.8" />
       <module name="currency-demo" target="1.8" />
       <module name="java-basic" target="1.8" />
