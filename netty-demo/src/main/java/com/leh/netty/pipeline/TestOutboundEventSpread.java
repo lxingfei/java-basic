@@ -1,8 +1,10 @@
-package com.leh.netty;
+package com.leh.netty.pipeline;
 
-import com.leh.netty.pipeline.AuthHandler;
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.*;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
+import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
@@ -13,7 +15,7 @@ import io.netty.util.AttributeKey;
  * @Date: 2019/10/25 14:47
  * @Description: netty服务端启动标准demo
  */
-public final class Server {
+public final class TestOutboundEventSpread {
 
     public static void main(String[] args) {
         // bossGroup 对应 socket编程中 server端 的 线程
@@ -27,14 +29,13 @@ public final class Server {
                 .channel(NioServerSocketChannel.class)
                 .childOption(ChannelOption.TCP_NODELAY, true)
                 .childAttr(AttributeKey.newInstance("childAttr"), "childAttrValue")
-                .handler(new ServerHandler())
                 .childHandler(new ChannelInitializer<SocketChannel>() {
 
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
-                        ch.pipeline().addLast(new AuthHandler());
-                        ch.pipeline().addLast(new ChannelInboundHandlerAdapter());
-                        ch.pipeline().addLast(new ChannelOutboundHandlerAdapter());
+                        ch.pipeline().addLast(new OutboundHandlerA());
+                        ch.pipeline().addLast(new OutboundHandlerB());
+                        ch.pipeline().addLast(new OutboundHandlerC());
                     }
                 });
         try {
