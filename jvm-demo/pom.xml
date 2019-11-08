@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>classloader-demo</artifactId>
+    <artifactId>jvm-demo</artifactId>
 
 
 </project>

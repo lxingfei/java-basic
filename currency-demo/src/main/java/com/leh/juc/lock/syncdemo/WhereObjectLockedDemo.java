@@ -42,7 +42,7 @@ public class WhereObjectLockedDemo {
             System.out.println("lock ing");
         }
 
-         /* 64位 jvm 规范 一个对象的大小是8的整数倍
+         /* 64位 memeory 规范 一个对象的大小是8的整数倍
 
         MyLock object internals:
          OFFSET  SIZE   TYPE DESCRIPTION                                        VALUE

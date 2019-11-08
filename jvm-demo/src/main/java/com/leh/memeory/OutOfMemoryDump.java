@@ -1,4 +1,4 @@
-package com.leh.jvm;
+package com.leh.memeory;
 
 import com.leh.model.User;
 
@@ -38,7 +38,7 @@ public class OutOfMemoryDump {
             at java.lang.Long.toHexString(Long.java:272)
             at java.util.UUID.digits(UUID.java:386)
             at java.util.UUID.toString(UUID.java:377)
-            at com.leh.jvm.OutOfMemoryDump.main(OutOfMemoryDump.java:28)
+            at com.leh.memeory.OutOfMemoryDump.main(OutOfMemoryDump.java:28)
 
      */
 }

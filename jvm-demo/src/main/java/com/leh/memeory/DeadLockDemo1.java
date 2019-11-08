@@ -1,4 +1,4 @@
-package com.leh.jvm;
+package com.leh.memeory;
 
 /**
  * @Auther: leh
@@ -66,18 +66,18 @@ public class DeadLockDemo1 {
 
             "thread2" #12 prio=5 os_prio=0 tid=0x000000001e09d800 nid=0x3fb24 waiting for monitor entry [0x000000001eb3e000]
                java.lang.Thread.State: BLOCKED (on object monitor)
-                    at com.leh.jvm.DeadLockDemo1.lambda$main$1(DeadLockDemo1.java:47)
+                    at com.leh.memeory.DeadLockDemo1.lambda$main$1(DeadLockDemo1.java:47)
                     - waiting to lock <0x000000076b390f08> (a java.lang.Object)
                     - locked <0x000000076b390f18> (a java.lang.Object)
-                    at com.leh.jvm.DeadLockDemo1$$Lambda$2/1831932724.run(Unknown Source)
+                    at com.leh.memeory.DeadLockDemo1$$Lambda$2/1831932724.run(Unknown Source)
                     at java.lang.Thread.run(Thread.java:748)
 
             "thread1" #11 prio=5 os_prio=0 tid=0x000000001e099000 nid=0x3c040 waiting for monitor entry [0x000000001ea3f000]
                java.lang.Thread.State: BLOCKED (on object monitor)
-                    at com.leh.jvm.DeadLockDemo1.lambda$main$0(DeadLockDemo1.java:29)
+                    at com.leh.memeory.DeadLockDemo1.lambda$main$0(DeadLockDemo1.java:29)
                     - waiting to lock <0x000000076b390f18> (a java.lang.Object)
                     - locked <0x000000076b390f08> (a java.lang.Object)
-                    at com.leh.jvm.DeadLockDemo1$$Lambda$1/990368553.run(Unknown Source)
+                    at com.leh.memeory.DeadLockDemo1$$Lambda$1/990368553.run(Unknown Source)
                     at java.lang.Thread.run(Thread.java:748)
 
             "Service Thread" #10 daemon prio=9 os_prio=0 tid=0x000000001de01000 nid=0xd128 runnable [0x0000000000000000]
@@ -160,16 +160,16 @@ public class DeadLockDemo1 {
             Java stack information for the threads listed above:
             ===================================================
             "thread2":
-                    at com.leh.jvm.DeadLockDemo1.lambda$main$1(DeadLockDemo1.java:47)
+                    at com.leh.memeory.DeadLockDemo1.lambda$main$1(DeadLockDemo1.java:47)
                     - waiting to lock <0x000000076b390f08> (a java.lang.Object)
                     - locked <0x000000076b390f18> (a java.lang.Object)
-                    at com.leh.jvm.DeadLockDemo1$$Lambda$2/1831932724.run(Unknown Source)
+                    at com.leh.memeory.DeadLockDemo1$$Lambda$2/1831932724.run(Unknown Source)
                     at java.lang.Thread.run(Thread.java:748)
             "thread1":
-                    at com.leh.jvm.DeadLockDemo1.lambda$main$0(DeadLockDemo1.java:29)
+                    at com.leh.memeory.DeadLockDemo1.lambda$main$0(DeadLockDemo1.java:29)
                     - waiting to lock <0x000000076b390f18> (a java.lang.Object)
                     - locked <0x000000076b390f08> (a java.lang.Object)
-                    at com.leh.jvm.DeadLockDemo1$$Lambda$1/990368553.run(Unknown Source)
+                    at com.leh.memeory.DeadLockDemo1$$Lambda$1/990368553.run(Unknown Source)
                     at java.lang.Thread.run(Thread.java:748)
 
             Found 1 deadlock.

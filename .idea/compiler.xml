@@ -10,6 +10,7 @@
         <module name="classloader-demo" />
         <module name="currency-demo" />
         <module name="java8-feature-demo" />
+        <module name="jvm-demo" />
         <module name="linux-demo" />
         <module name="netty-demo" />
         <module name="reflect-demo" />
@@ -22,6 +23,7 @@
       <module name="currency-demo" target="1.8" />
       <module name="java-basic" target="1.8" />
       <module name="java8-feature-demo" target="1.8" />
+      <module name="jvm-demo" target="1.8" />
       <module name="linux-demo" target="1.8" />
       <module name="netty-demo" target="1.8" />
       <module name="reflect-demo" target="1.8" />

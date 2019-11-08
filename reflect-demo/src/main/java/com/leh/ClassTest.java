@@ -38,7 +38,7 @@ public class ClassTest {
             e.printStackTrace();
         }
 
-        System.out.println(c1 == c2);//jvm 加载类类型只会加载一次，后面拿到的都是同一个
+        System.out.println(c1 == c2);//memeory 加载类类型只会加载一次，后面拿到的都是同一个
         System.out.println(c2 == c3);
 
         /**
