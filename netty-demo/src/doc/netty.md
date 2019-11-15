@@ -1,4 +1,4 @@
-### 														Netty  深入剖析
+Netty  深入剖析
 
 #### 一 netty简介
 
@@ -3534,7 +3534,7 @@ ExceptionOutboundHandlerC.exceptionCaught
 BusinessException
 ```
 
-##### 七、netty - byteBuf 
+#### 七、netty - byteBuf 
 
 本章是netty`内存分配`相关的内容, byteBuf 是直接与底层i/o打交道的一层抽象。
 
@@ -3753,33 +3753,1767 @@ protected byte _getByte(int index) {
 
 ##### 7.7  PooledByteBufAllocator 分析
 
++ 拿到线程局部缓存PoolThreadCache （多线程调用newHeapBuffer时拿到当前线程的cache）
++ 在线程局部缓存的Area上进行内存分配
 
+以`io.netty.buffer.PooledByteBufAllocator#newHeapBuffer`为例：
+
+```java
+final class PoolThreadLocalCache extends FastThreadLocal<PoolThreadCache> {
+
+    @Override
+    protected synchronized PoolThreadCache initialValue() {
+        final PoolArena<byte[]> heapArena = leastUsedArena(heapArenas);
+        final PoolArena<ByteBuffer> directArena = leastUsedArena(directArenas);
+
+        return new PoolThreadCache(
+                heapArena, directArena, tinyCacheSize, smallCacheSize, normalCacheSize,
+                DEFAULT_MAX_CACHED_BUFFER_CAPACITY, DEFAULT_CACHE_TRIM_INTERVAL);
+    }
+    ......
+}
+```
+
+```java
+private final PoolThreadLocalCache threadCache;
+
+...
+protected ByteBuf newHeapBuffer(int initialCapacity, int maxCapacity) {
+    PoolThreadCache cache = threadCache.get();
+    PoolArena<byte[]> heapArena = cache.heapArena;
+
+    ByteBuf buf;
+    if (heapArena != null) {
+        buf = heapArena.allocate(cache, initialCapacity, maxCapacity);
+    } else {
+        buf = new UnpooledHeapByteBuf(this, initialCapacity, maxCapacity);
+    }
+
+    return toLeakAwareBuffer(buf);
+}
+```
+
+![1573530023969](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573530023969.png)
 
 ##### 7.8  directArena分配direct内存的流程
 
++ 从对象池里面拿到PooledByteBuf进行复用
+  + PoolThreadCache 是每一个线程都会维护的一个对象
++ 从缓存上j进行内存分配
++ 从内存堆里面进行内存分配
+
+以`io.netty.buffer.PooledByteBufAllocator#newDirectBuffer`为例：
+
+```java
+protected ByteBuf newDirectBuffer(int initialCapacity, int maxCapacity) {
+    PoolThreadCache cache = threadCache.get();
+    PoolArena<ByteBuffer> directArena = cache.directArena;
+
+    ByteBuf buf;
+    if (directArena != null) {
+        buf = directArena.allocate(cache, initialCapacity, maxCapacity);
+    } else {
+        if (PlatformDependent.hasUnsafe()) {
+            buf = UnsafeByteBufUtil.newUnsafeDirectByteBuf(this, initialCapacity, maxCapacity);
+        } else {
+            buf = new UnpooledDirectByteBuf(this, initialCapacity, maxCapacity);
+        }
+    }
+    return toLeakAwareBuffer(buf);
+}
+```
+
+io.netty.buffer.PoolArena#allocate(io.netty.buffer.PoolThreadCache, int, int)
+
+```java
+PooledByteBuf<T> allocate(PoolThreadCache cache, int reqCapacity, int maxCapacity) {
+    //第一步 拿到byteBuf
+    PooledByteBuf<T> buf = newByteBuf(maxCapacity);
+    //第二步 进行内存分配 （先在缓存上进行内存分配，若未命中缓存，则进行实际的内存分配）
+    allocate(cache, buf, reqCapacity);
+    return buf;
+}
+```
+
+io.netty.buffer.PoolArena.DirectArena#newByteBuf
+
+```java
+protected PooledByteBuf<ByteBuffer> newByteBuf(int maxCapacity) {
+    if (HAS_UNSAFE) {
+        return PooledUnsafeDirectByteBuf.newInstance(maxCapacity);
+    } else {
+        return PooledDirectByteBuf.newInstance(maxCapacity);
+    }
+}
+```
+
+io.netty.buffer.PooledUnsafeDirectByteBuf#newInstance
+
+```java
+private static final Recycler<PooledUnsafeDirectByteBuf> RECYCLER = new Recycler<PooledUnsafeDirectByteBuf>() {
+        @Override
+        protected PooledUnsafeDirectByteBuf newObject(Handle<PooledUnsafeDirectByteBuf> handle) {
+            //handle负责byteBuf对象的回收
+            return new PooledUnsafeDirectByteBuf(handle, 0);
+        }
+    };
+
+static PooledUnsafeDirectByteBuf newInstance(int maxCapacity) {
+    //带有回收特性的对象池
+    PooledUnsafeDirectByteBuf buf = RECYCLER.get();
+    //复用byteBuf对象
+    buf.reuse(maxCapacity);
+    return buf;
+}
+```
+
+io.netty.buffer.PooledByteBuf#reuse
+
+```java
+final void reuse(int maxCapacity) {
+    maxCapacity(maxCapacity);
+    setRefCnt(1);
+    setIndex0(0, 0);
+    discardMarks();
+}
+```
+
 ##### 7.9 内存规格的介绍
+
+不同大小内存的分配逻辑是不一样的。
+
+为什么把16M作为分界点 ？
+
+16M对应Chunk，所有的内存申请都是通过以Chunk为单位向操作系统进行申请的，后续所有的内存分配都是在Chunk里面做对应的操作。
+
+例如 要分配一个1M的内存，首先申请一个16M的Chunk --》在16M里面取出一段内存作为1M --》把1M对应的连续内存扔到ByteBuf里面。
+
+为什么把8K作为分界点 ？
+
+16M可能有点大，把16M的Chunk按page的方式切分，16M/8k = 2^11个page=2048  1page = 8K
+
+这样想要分配16k内存的时候，只需要找到两个连续的page即可，这样的分配更高效
+
+比如要申请16个字节，如果以page进行分配，可能会很浪费，netty按照内存大小的规格把8K继续进行切分。
+
+若要分配512B，将8k分成 8k/512个片段，每次找到一个空闲的片段进行分配即可。
 
 ![1573128333234](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573128333234.png)
 
 ##### 7.10 缓存数据结构
 
+netty中与缓存相关的数据结构: **MemoryRegionCache**
+
+MemoryRegionCache由3部分组成：
+
++ queue 
+  + 每一个元素是个实体entry
+    + chunk  代表分配单位
+    + handler  指向一段唯一连续的内存
++ sizeClass  netty中的内存规格
+  + tiny
+  + small
+  + normal
++ size  
+
+io.netty.buffer.PoolThreadCache
+
+
+
+io.netty.buffer.PoolArena.SizeClass
+
+```java
+ enum SizeClass {
+        Tiny,
+        Small,
+        Normal
+    }
+```
+
+io.netty.buffer.PoolThreadCache.MemoryRegionCache.Entry
+
+```java
+static final class Entry<T> {
+    final Handle<Entry<?>> recyclerHandle;
+    PoolChunk<T> chunk;
+    long handle = -1;
+
+    Entry(Handle<Entry<?>> recyclerHandle) {
+        this.recyclerHandle = recyclerHandle;
+    }
+
+    void recycle() {
+        chunk = null;
+        handle = -1;
+        recyclerHandle.recycle(this);
+    }
+}
+```
+
+io.netty.buffer.PoolThreadCache.MemoryRegionCache
+
+```java
+
+private abstract static class MemoryRegionCache<T> {
+    private final int size;
+    private final Queue<Entry<T>> queue;
+    private final SizeClass sizeClass;
+    private int allocations;
+
+    MemoryRegionCache(int size, SizeClass sizeClass) {
+        this.size = MathUtil.safeFindNextPositivePowerOfTwo(size);
+        queue = PlatformDependent.newFixedMpscQueue(this.size);
+        this.sizeClass = sizeClass;
+    }
+    ......
+}
+
+```
+
+![1573543495171](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573543495171.png)
+
+![1573543875121](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573543875121.png)
+
+io.netty.buffer.PoolArena#numTinySubpagePools
+
+```java
+//右移4位 相当于 除以 16
+static final int numTinySubpagePools = 512 >>> 4;//32
+```
+
+io.netty.buffer.PoolThreadCache#PoolThreadCache
+
+```java
+final class PoolThreadCache {
+
+    private static final InternalLogger logger = InternalLoggerFactory.getInstance(PoolThreadCache.class);
+	
+    //Arena 竞技场 直接开辟一块内存
+    final PoolArena<byte[]> heapArena;
+    final PoolArena<ByteBuffer> directArena;
+
+    // Hold the caches for the different size classes, which are tiny, small and normal.
+    //缓存一块连续内存
+    private final MemoryRegionCache<byte[]>[] tinySubPageHeapCaches;
+    private final MemoryRegionCache<byte[]>[] smallSubPageHeapCaches;
+    private final MemoryRegionCache<ByteBuffer>[] tinySubPageDirectCaches;
+    private final MemoryRegionCache<ByteBuffer>[] smallSubPageDirectCaches;
+    private final MemoryRegionCache<byte[]>[] normalHeapCaches;
+    private final MemoryRegionCache<ByteBuffer>[] normalDirectCaches;
+    ...
+}
+```
+
+```java
+tinySubPageDirectCaches = createSubPageCaches(
+        tinyCacheSize, PoolArena.numTinySubpagePools, SizeClass.Tiny);
+```
+
+小结：每一个线程中维护一个PoolThreadCache，PoolThreadCache会维护三种内存规格大小的cache，每种规格的cache又进行细分，其数组中的每一个元素都维持缓存队列，即MemoryRegionCache。
+
 ##### 7.11 命中缓存的分配流程
 
-##### 7.12 arena、chunk、page、subpage概念
++ 找到对应size的MemoryRegionCache
++ 从queue中弹出一个entry给ByteBuf初始化
++ 将弹出的entry扔到对象池中进行复用
+  + 通过Recycle回收，减少GC，减少对象重复的创建与销毁
 
-##### 7.13 page 级别内存分配
+内存分配的入口：
 
-##### 7.14 subpage 级别的内存分配
+io.netty.buffer.PoolArena#allocate(io.netty.buffer.PoolThreadCache, io.netty.buffer.PooledByteBuf<T>, int)
+
+```java
+// capacity < pageSize
+    boolean isTinyOrSmall(int normCapacity) {
+        return (normCapacity & subpageOverflowMask) == 0;
+    }
+
+    // normCapacity < 512
+    static boolean isTiny(int normCapacity) {
+        return (normCapacity & 0xFFFFFE00) == 0;
+    }
+
+    private void allocate(PoolThreadCache cache, PooledByteBuf<T> buf, final int reqCapacity) {
+        final int normCapacity = normalizeCapacity(reqCapacity);
+        if (isTinyOrSmall(normCapacity)) { // capacity < pageSize
+            int tableIdx;
+            PoolSubpage<T>[] table;
+            boolean tiny = isTiny(normCapacity);
+            if (tiny) { // < 512
+                //第一种
+                if (cache.allocateTiny(this, buf, reqCapacity, normCapacity)) {
+                    // was able to allocate out of the cache so move on
+                    return;
+                }
+                tableIdx = tinyIdx(normCapacity);
+                table = tinySubpagePools;
+            } else {
+                //第二种
+                if (cache.allocateSmall(this, buf, reqCapacity, normCapacity)) {
+                    // was able to allocate out of the cache so move on
+                    return;
+                }
+                tableIdx = smallIdx(normCapacity);
+                table = smallSubpagePools;
+            }
+
+            final PoolSubpage<T> head = table[tableIdx];
+
+            synchronized (head) {
+                final PoolSubpage<T> s = head.next;
+                if (s != head) {
+                    assert s.doNotDestroy && s.elemSize == normCapacity;
+                    long handle = s.allocate();
+                    assert handle >= 0;
+                    s.chunk.initBufWithSubpage(buf, handle, reqCapacity);
+
+                    if (tiny) {
+                        allocationsTiny.increment();
+                    } else {
+                        allocationsSmall.increment();
+                    }
+                    return;
+                }
+            }
+            allocateNormal(buf, reqCapacity, normCapacity);
+            return;
+        }
+        if (normCapacity <= chunkSize) {
+            //第三种
+            if (cache.allocateNormal(this, buf, reqCapacity, normCapacity)) {
+                // was able to allocate out of the cache so move on
+                return;
+            }
+            allocateNormal(buf, reqCapacity, normCapacity);
+        } else {
+            // Huge allocations are never served via the cache so just call allocateHuge
+            allocateHuge(buf, reqCapacity);
+        }
+    }
+```
+
+io.netty.buffer.PoolThreadCache.MemoryRegionCache#allocate
+
+```java
+public final boolean allocate(PooledByteBuf<T> buf, int reqCapacity) {
+    Entry<T> entry = queue.poll();
+    if (entry == null) {
+        return false;
+    }
+    initBuf(entry.chunk, entry.handle, buf, reqCapacity);
+    entry.recycle();
+
+    // allocations is not thread-safe which is fine as this is only called from the same thread all time.
+    ++ allocations;
+    return true;
+}
+```
+
+io.netty.util.Recycler.DefaultHandle#recycle
+
+```java
+public void recycle(Object object) {
+    if (object != value) {
+        throw new IllegalArgumentException("object does not belong to handle");
+    }
+    stack.push(this);
+}
+```
+
+##### 7.12 Arena、Chunk、Page、Subpage概念
+
+![1573554647434](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573554647434.png)
+
+**Arena数据结构：**
+
+![1573554915344](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573554915344.png)
+
+
+
+![1573555098242](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573555098242.png)
+
+```
+abstract class PoolArena<T> implements PoolArenaMetric {
+    static final boolean HAS_UNSAFE = PlatformDependent.hasUnsafe();
+
+    enum SizeClass {
+        Tiny,
+        Small,
+        Normal
+    }
+
+    static final int numTinySubpagePools = 512 >>> 4;
+
+    final PooledByteBufAllocator parent;
+
+    private final int maxOrder;
+    final int pageSize;
+    final int pageShifts;
+    final int chunkSize;
+    final int subpageOverflowMask;
+    final int numSmallSubpagePools;
+    private final PoolSubpage<T>[] tinySubpagePools;
+    private final PoolSubpage<T>[] smallSubpagePools;
+
+    private final PoolChunkList<T> q050;
+    private final PoolChunkList<T> q025;
+    private final PoolChunkList<T> q000;
+    private final PoolChunkList<T> qInit;
+    private final PoolChunkList<T> q075;
+    private final PoolChunkList<T> q100;
+    ...
+}
+```
+
+```java
+//PoolSubpage 数据结构 双向链表
+final class PoolSubpage<T> implements PoolSubpageMetric {
+    ...
+    PoolSubpage<T> prev;
+    PoolSubpage<T> next;
+    ...
+}
+```
+
+内存分配的流程：
+
+从一个线程的PoolThreadCache中获取对应的Arena，Arena再通过PoolChunkList里面去一个chunk，
+
+chunk会判断内存分配大小：
+
+超过1个page，则以page为单位；若远小于一个page，则将一个page切分成多个子page进行内存划分。
+
+##### 7.13 page 级别内存分配  allocateNormal()
+
++ 尝试在现有的chunk上分配
+
++ 创建一个chunk进行内存分配
+
++ 初始化pooledByteBuf
+
+  一个chunk最终是以K为单位组织内存的，chunk中的每一个节点可以标识对应的这块内存是否被使用
+
+  ![1573632782911](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573632782911.png)
+
+io.netty.buffer.PoolArena#allocateNormal
+
+```java
+private synchronized void allocateNormal(PooledByteBuf<T> buf, int reqCapacity, int normCapacity) {
+    if (q050.allocate(buf, reqCapacity, normCapacity) || q025.allocate(buf, reqCapacity, normCapacity) ||
+        q000.allocate(buf, reqCapacity, normCapacity) || qInit.allocate(buf, reqCapacity, normCapacity) ||
+        q075.allocate(buf, reqCapacity, normCapacity)) {
+        ++allocationsNormal;
+        return;
+    }
+
+    // Add a new chunk.
+    PoolChunk<T> c = newChunk(pageSize, maxOrder, pageShifts, chunkSize);
+    long handle = c.allocate(normCapacity);
+    ++allocationsNormal;
+    assert handle > 0;
+    c.initBuf(buf, handle, reqCapacity);
+    qInit.add(c);
+}
+```
+
+##### 7.14 subpage 级别的内存分配 allocateTiny()
+
++ 定位一个Subpage对象
+
++ 初始化Subpage
+
++ 初始化PooledByteBuf
+
+  
+
+io.netty.buffer.PoolChunk#allocateSubpage
+
+```java
+private long allocateSubpage(int normCapacity) {
+    // Obtain the head of the PoolSubPage pool that is owned by the PoolArena and synchronize on it.
+    // This is need as we may add it back and so alter the linked-list structure.
+    PoolSubpage<T> head = arena.findSubpagePoolHead(normCapacity);
+    synchronized (head) {
+        int d = maxOrder; // subpages are only be allocated from pages i.e., leaves
+        int id = allocateNode(d);
+        if (id < 0) {
+            return id;
+        }
+
+        final PoolSubpage<T>[] subpages = this.subpages;
+        final int pageSize = this.pageSize;
+
+        freeBytes -= pageSize;
+
+        int subpageIdx = subpageIdx(id);
+        PoolSubpage<T> subpage = subpages[subpageIdx];
+        if (subpage == null) {
+            subpage = new PoolSubpage<T>(head, this, id, runOffset(id), pageSize, normCapacity);
+            subpages[subpageIdx] = subpage;
+        } else {
+            subpage.init(head, normCapacity);
+        }
+        return subpage.allocate();
+    }
+}
+```
+
+io.netty.buffer.PoolSubpage#init
+
+```java
+PoolSubpage(PoolSubpage<T> head, PoolChunk<T> chunk, int memoryMapIdx, int runOffset, int pageSize, int elemSize) {
+    this.chunk = chunk;
+    this.memoryMapIdx = memoryMapIdx;
+    this.runOffset = runOffset;
+    this.pageSize = pageSize;
+    bitmap = new long[pageSize >>> 10]; // pageSize / 16 / 64
+    init(head, elemSize);
+}
+
+void init(PoolSubpage<T> head, int elemSize) {
+    doNotDestroy = true;
+    this.elemSize = elemSize;
+    if (elemSize != 0) {
+        maxNumElems = numAvail = pageSize / elemSize;
+        nextAvail = 0;
+        bitmapLength = maxNumElems >>> 6;
+        if ((maxNumElems & 63) != 0) {
+            bitmapLength ++;
+        }
+
+        for (int i = 0; i < bitmapLength; i ++) {
+            bitmap[i] = 0;//标识哪个子page已经被分配
+        }
+    }
+    addToPool(head);
+}
+```
+
+
+
+![1573637677615](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573637677615.png)
+
+
+
+**chunk中的subpages**
+
+![1573635828575](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573635828575.png)
+
+io.netty.buffer.PoolSubpage#allocate
+
+```java
+//从位图中找到一个未被使用的subpage
+long allocate() {
+    if (elemSize == 0) {
+        return toHandle(0);
+    }
+
+    if (numAvail == 0 || !doNotDestroy) {
+        return -1;
+    }
+
+    final int bitmapIdx = getNextAvail();
+    int q = bitmapIdx >>> 6;
+    int r = bitmapIdx & 63;
+    assert (bitmap[q] >>> r & 1) == 0;
+    bitmap[q] |= 1L << r;
+
+    if (-- numAvail == 0) {
+        removeFromPool();
+    }
+    return toHandle(bitmapIdx);
+}
+```
+
+
+
+io.netty.buffer.PoolSubpage#toHandle
+
+```java
+private long toHandle(int bitmapIdx) {
+    return 0x4000000000000000L | (long) bitmapIdx << 32 | memoryMapIdx;
+}
+```
+
+Handle的构成**
+
+![1573636152711](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573636152711.png)
+
+io.netty.buffer.PoolChunk#initBufWithSubpage(io.netty.buffer.PooledByteBuf<T>, long, int, int)
+
+```java
+private void initBufWithSubpage(PooledByteBuf<T> buf, long handle, int bitmapIdx, int reqCapacity) {
+    assert bitmapIdx != 0;
+
+    int memoryMapIdx = memoryMapIdx(handle);
+
+    PoolSubpage<T> subpage = subpages[subpageIdx(memoryMapIdx)];
+    assert subpage.doNotDestroy;
+    assert reqCapacity <= subpage.elemSize;
+
+    buf.init(
+        this, handle,
+        //page的偏移量 + subpage的偏移量 = 整个内存的偏移量 再给到bytebuf，
+        //这样bytebuf就可以基于这个偏移量进行读写
+        runOffset(memoryMapIdx) + (bitmapIdx & 0x3FFFFFFF) * subpage.elemSize, reqCapacity, subpage.elemSize,
+        arena.parent.threadCache());
+}
+```
 
 ##### 7.15 ByteBuf的回收
 
+```java
+public class AllocatorDemo {
+    public static void main(String[] args) {
+        PooledByteBufAllocator allocator = PooledByteBufAllocator.DEFAULT;
+        //申请一块内存
+        ByteBuf byteBuf = allocator.directBuffer(16);
+        //释放内存
+        byteBuf.release();
+    }
+}
+```
+
+io.netty.buffer.AbstractReferenceCountedByteBuf#release()
+
+```java
+public boolean release() {
+    return release0(1);
+}
+```
+
+io.netty.buffer.PooledByteBuf#deallocate
+
+```java
+protected final void deallocate() {
+    if (handle >= 0) {
+        final long handle = this.handle;
+        this.handle = -1;
+        memory = null;
+        chunk.arena.free(chunk, handle, maxLength, cache);
+        recycle();
+    }
+}
+```
+
+**ByteBuf的释放分析：**
+
++ 连续的内存区段加到缓存
+
+  io.netty.buffer.PoolThreadCache#cache(io.netty.buffer.PoolArena<?>, int, io.netty.buffer.PoolArena.SizeClass)
+
+  ```java
+  boolean add(PoolArena<?> area, PoolChunk chunk, long handle, int normCapacity, SizeClass sizeClass) {
+          MemoryRegionCache<?> cache = cache(area, normCapacity, sizeClass);
+          if (cache == null) {
+              return false;
+          }
+          return cache.add(chunk, handle);
+  }
+  
+  
+  private MemoryRegionCache<?> cache(PoolArena<?> area, int normCapacity, SizeClass sizeClass) {
+      switch (sizeClass) {
+      case Normal:
+          return cacheForNormal(area, normCapacity);
+      case Small:
+          return cacheForSmall(area, normCapacity);
+      case Tiny:
+          return cacheForTiny(area, normCapacity);
+      default:
+          throw new Error();
+      }
+  }
+  ```
+
+  io.netty.buffer.PoolThreadCache.MemoryRegionCache#add
+
+  ```java
+  public final boolean add(PoolChunk<T> chunk, long handle) {
+      Entry<T> entry = newEntry(chunk, handle);
+      boolean queued = queue.offer(entry);
+      if (!queued) {
+          // If it was not possible to cache the chunk, immediately recycle the entry
+          entry.recycle();
+      }
+      return queued;
+  }
+  ```
+
++ 标记连续的内存区段为未使用
+
+  + page级别
+  + subPage级别
+
+  io.netty.buffer.PoolChunkList#free
+
+  ```java
+  boolean free(PoolChunk<T> chunk, long handle) {
+      chunk.free(handle);
+      if (chunk.usage() < minUsage) {
+          remove(chunk);
+          // Move the PoolChunk down the PoolChunkList linked-list.
+          return move0(chunk);
+      }
+      return true;
+  }
+  ```
+
+  io.netty.buffer.PoolChunk#free
+
+  ```java
+  void free(long handle) {
+      int memoryMapIdx = memoryMapIdx(handle);
+      int bitmapIdx = bitmapIdx(handle);
+  
+      if (bitmapIdx != 0) { // free a subpage
+          PoolSubpage<T> subpage = subpages[subpageIdx(memoryMapIdx)];
+          assert subpage != null && subpage.doNotDestroy;
+  
+          // Obtain the head of the PoolSubPage pool that is owned by the PoolArena and synchronize on it.
+          // This is need as we may add it back and so alter the linked-list structure.
+          PoolSubpage<T> head = arena.findSubpagePoolHead(subpage.elemSize);
+          synchronized (head) {
+              if (subpage.free(head, bitmapIdx & 0x3FFFFFFF)) {
+                  return;
+              }
+          }
+      }
+      freeBytes += runLength(memoryMapIdx);
+      setValue(memoryMapIdx, depth(memoryMapIdx));
+      updateParentsFree(memoryMapIdx);
+  }
+  ```
+
+  
+
++ ByteBuf加到对象池
+
+  bytebuf可能会经常被申请和释放，如果qps高的时候可能会产生很多的bytebuf对象，为了尽可能的减少GC，netty使用对象池技术，当申请byteBuf的时候尽可能从对象池中取，当释放byteBuf的时候，将其放到对象池中。
+
 ##### 7.16 ByteBuf 总结
 
++ ByteBuf的api和分类
++ 分配pooled内存的总步骤
++ 不同规格的pooled内存分配与释放
+
+#### 八. Netty 解码
+
+解码：把一串二级制数据流解析成一个个自定义的数据包即Bytebuf，后续业务处理都基于bytebuf。
+
+![1573642890680](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573642890680.png)
+
+##### 8.1 .1思考问题
+
++ 解码器抽象的解码过程
++ netty中有哪些拆箱即用的解码器
+
+##### 8.1.2 本章内容
+
++ 解码器基类实现抽象解码的过程
++ netty中常见的解码器分析
+
+##### 8.2 解码器的基类 - ByteToMessageDecoder解码步骤
+
+暴漏decode抽象方法，具体实现交给子类。好处是：不同的子类的协议可以有自定义的decode方法，而最外层解码的框架都是一致的。
+
++ 累加字节流
++ 调用子类的decode方法进行解析
++ 将解析到的ByteBuf向下传播
+
+io.netty.handler.codec.ByteToMessageDecoder#channelRead
+
+```java
+public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+    if (msg instanceof ByteBuf) {
+        CodecOutputList out = CodecOutputList.newInstance();
+        try {
+            ByteBuf data = (ByteBuf) msg;
+            first = cumulation == null;
+            if (first) {
+                cumulation = data;
+            } else {
+                //当前累加器里的数据和读进来数据进行累加 - 注意累加器的扩容逻辑
+                cumulation = cumulator.cumulate(ctx.alloc(), cumulation, data);
+            }
+            // out 用来接收从cumulation中解析到的对象
+            callDecode(ctx, cumulation, out);
+        } catch (DecoderException e) {
+            throw e;
+        } catch (Throwable t) {
+            throw new DecoderException(t);
+        } finally {
+            if (cumulation != null && !cumulation.isReadable()) {
+                numReads = 0;
+                cumulation.release();
+                cumulation = null;
+            } else if (++ numReads >= discardAfterReads) {
+                // We did enough reads already try to discard some bytes so we not risk to see a OOME.
+                // See https://github.com/netty/netty/issues/4275
+                numReads = 0;
+                discardSomeReadBytes();
+            }
+
+            int size = out.size();
+            decodeWasNull = !out.insertSinceRecycled();
+            // 讲解析到的对象向下传播到业务解码器
+            fireChannelRead(ctx, out, size);
+            out.recycle();
+        }
+    } else {
+        ctx.fireChannelRead(msg);
+    }
+}
+```
+
+io.netty.handler.codec.ByteToMessageDecoder#callDecode
+
+```java
+protected void callDecode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) {
+    try {
+        while (in.isReadable()) {
+            int outSize = out.size();
+
+            if (outSize > 0) {
+                fireChannelRead(ctx, out, outSize);
+                out.clear();
+
+                // Check if this handler was removed before continuing with decoding.
+                // If it was removed, it is not safe to continue to operate on the buffer.
+                //
+                // See:
+                // - https://github.com/netty/netty/issues/4635
+                if (ctx.isRemoved()) {
+                    break;
+                }
+                outSize = 0;
+            }
+
+            int oldInputLength = in.readableBytes();
+            decode(ctx, in, out);
+
+            // Check if this handler was removed before continuing the loop.
+            // If it was removed, it is not safe to continue to operate on the buffer.
+            //
+            // See https://github.com/netty/netty/issues/1664
+            if (ctx.isRemoved()) {
+                break;
+            }
+            //未解析到对象
+            if (outSize == out.size()) {
+                if (oldInputLength == in.readableBytes()) {
+                    break;
+                } else {
+                    continue;
+                }
+            }
+            if (oldInputLength == in.readableBytes()) {
+                throw new DecoderException(
+                        StringUtil.simpleClassName(getClass()) +
+                        ".decode() did not read anything but decoded a message.");
+            }
+
+            if (isSingleDecode()) {
+                break;
+            }
+        }
+    } catch (DecoderException e) {
+        throw e;
+    } catch (Throwable cause) {
+        throw new DecoderException(cause);
+    }
+}
+```
+
+##### 8.3 基于固定长度解码器分析
+
+io.netty.handler.codec.FixedLengthFrameDecoder
+
+```java
+/**
+ * A decoder that splits the received {@link ByteBuf}s by the fixed number
+ * of bytes. For example, if you received the following four fragmented packets:
+ * <pre>
+ * +---+----+------+----+
+ * | A | BC | DEFG | HI |
+ * +---+----+------+----+
+ * </pre>
+ * A {@link FixedLengthFrameDecoder}{@code (3)} will decode them into the
+ * following three packets with the fixed length:
+ * <pre>
+ * +-----+-----+-----+
+ * | ABC | DEF | GHI |
+ * +-----+-----+-----+
+ * </pre>
+ */
+public class FixedLengthFrameDecoder extends ByteToMessageDecoder {
+
+   	//按frameLength的长度为分割进行解析
+    private final int frameLength;
+
+    /**
+     * Creates a new instance.
+     *
+     * @param frameLength the length of the frame
+     */
+    public FixedLengthFrameDecoder(int frameLength) {
+        if (frameLength <= 0) {
+            throw new IllegalArgumentException(
+                    "frameLength must be a positive integer: " + frameLength);
+        }
+        this.frameLength = frameLength;
+    }
+
+    @Override
+    protected final void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
+        Object decoded = decode(ctx, in);
+        if (decoded != null) {
+            out.add(decoded);
+        }
+    }
+
+    /**
+     * Create a frame out of the {@link ByteBuf} and return it.
+     *
+     * @param   ctx             the {@link ChannelHandlerContext} which this {@link ByteToMessageDecoder} belongs to
+     * @param   in              the {@link ByteBuf} from which to read data
+     * @return  frame           the {@link ByteBuf} which represent the frame or {@code null} if no frame could
+     *                          be created.
+     */
+    protected Object decode(
+            @SuppressWarnings("UnusedParameters") ChannelHandlerContext ctx, ByteBuf in) throws Exception {
+        //当前累加器可读字节 < frameLength
+        if (in.readableBytes() < frameLength) {
+            return null;
+        } else {
+        	//从当前累加器截取frameLength个字节进行解析
+            return in.readRetainedSlice(frameLength);
+        }
+    }
+}
+```
+
+##### 8.4 基于行解码器分析
+
+io.netty.handler.codec.LineBasedFrameDecoder
+
+ 发过来的字节流是以 \r \n 或直接以 \n 结尾的字节流，该解码器的功能就是以 换行符 为分割，将字节流解析成完整的数据包。
+
+```txt
+回车、换行的区别
+
+在Windows中：
+
+    ‘\r’ (回车)：即将光标回到当前行的行首(而不会换到下一行)，之后的输出会把之前的输出覆盖
+
+    ‘\n’ 换行，换到当前位置的下一位置，而不会回到行首；
+
+    Unix系统里，每行结尾只有“<换行>”，即"\n"；
+
+    Windows系统里面，每行结尾是“<回车><换行>”，即“\r\n”；
+
+    Mac系统里，每行结尾是“<回车>”，即"\r"；
+
+也就是：
+    Linux中遇到换行符("\n")会进行回车+换行的操作，回车符（“\r”）反而只会作为控制字符("^M")显示，不发生回车的操作。
+    而windows中要回车符+换行符("\r\n")才会回车+换行，缺少一个控制符或者顺序不对都不能正确的另起一行。
+
+```
+
+LineBasedFrameDecoder 支持两种格式的换行符；
+
+以\n 结尾 eol指向 \n
+
+若以 \r \n 结尾， 会把\r \n 当作整体作为换行符， eol指向 \r
+
+![1573699885821](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573699885821.png)
 
 
 
+```java
+public class LineBasedFrameDecoder extends ByteToMessageDecoder {
+
+    /** Maximum length of a frame we're willing to decode.
+    	能接收的最大字节
+    */
+    private final int maxLength;
+    /** Whether or not to throw an exception as soon as we exceed maxLength.
+    	超过能接收的最大字节是否马上抛出异常
+    */
+    private final boolean failFast;
+    /**
+   		最终解析出来的数据包是否带换行符，为true表示不带换行符
+    */
+    private final boolean stripDelimiter;
+
+    /** True if we're discarding input because we're already over maxLength.  */
+    private boolean discarding;
+    private int discardedBytes;
+}
+
+
+......
+    
+     protected final void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
+        Object decoded = decode(ctx, in);
+        if (decoded != null) {
+            out.add(decoded);
+        }
+    }
+
+......
+    
+    protected Object decode(ChannelHandlerContext ctx, ByteBuf buffer) throws Exception {
+        final int eol = findEndOfLine(buffer);
+        if (!discarding) {
+            if (eol >= 0) {
+                final ByteBuf frame;
+                final int length = eol - buffer.readerIndex();
+                final int delimLength = buffer.getByte(eol) == '\r'? 2 : 1;
+
+                if (length > maxLength) {
+                    buffer.readerIndex(eol + delimLength);
+                    fail(ctx, length);
+                    return null;
+                }
+
+                if (stripDelimiter) {
+                    frame = buffer.readRetainedSlice(length);
+                    buffer.skipBytes(delimLength);
+                } else {
+                    frame = buffer.readRetainedSlice(length + delimLength);
+                }
+
+                return frame;
+            } else {
+                final int length = buffer.readableBytes();
+                if (length > maxLength) {
+                    discardedBytes = length;
+                    buffer.readerIndex(buffer.writerIndex());
+                    discarding = true;
+                    if (failFast) {
+                        fail(ctx, "over " + discardedBytes);
+                    }
+                }
+                return null;
+            }
+        } else {
+            if (eol >= 0) {
+                final int length = discardedBytes + eol - buffer.readerIndex();
+                final int delimLength = buffer.getByte(eol) == '\r'? 2 : 1;
+                buffer.readerIndex(eol + delimLength);
+                discardedBytes = 0;
+                discarding = false;
+                if (!failFast) {
+                    fail(ctx, length);
+                }
+            } else {
+                discardedBytes += buffer.readableBytes();
+                buffer.readerIndex(buffer.writerIndex());
+            }
+            return null;
+        }
+    }
+
+......
+    
+    /**
+     * Returns the index in the buffer of the end of line found.
+     * Returns -1 if no end of line was found in the buffer.
+     */
+    private static int findEndOfLine(final ByteBuf buffer) {
+        int i = buffer.forEachByte(ByteProcessor.FIND_LF);
+        if (i > 0 && buffer.getByte(i - 1) == '\r') {
+            i--;
+        }
+        return i;
+    }
+```
+
+![1573701710403](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573701710403.png)
+
+![1573701846671](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573701846671.png)
+
+![1573701914741](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573701914741.png)
+
+##### 8.5 基于固定分隔符解码器分析
+
++ 行处理器 
+
+  + 若分隔符为换行符则直接使用行处理器
+
++ 找到最小分隔符
+
+  ![1573703248066](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573703248066.png)
+
++ 解码
+
+  ![1573703370913](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573703370913.png)
 
 
 
+![1573715294006](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573715294006.png)
+
+传进来的二进制字节流带有一系列的分隔符，经过这个解码器处理，可以分拆成一个个完整的数据包。
+
+io.netty.handler.codec.DelimiterBasedFrameDecoder
+
+```java
+protected Object decode(ChannelHandlerContext ctx, ByteBuf buffer) throws Exception {
+    if (lineBasedDecoder != null) {
+        return lineBasedDecoder.decode(ctx, buffer);
+    }
+    // Try all delimiters and choose the delimiter which yields the shortest frame.
+    int minFrameLength = Integer.MAX_VALUE;
+    ByteBuf minDelim = null;
+    for (ByteBuf delim: delimiters) {
+        int frameLength = indexOf(buffer, delim);
+        if (frameLength >= 0 && frameLength < minFrameLength) {
+            minFrameLength = frameLength;
+            minDelim = delim;
+        }
+    }
+
+    if (minDelim != null) {
+        int minDelimLength = minDelim.capacity();
+        ByteBuf frame;
+
+        if (discardingTooLongFrame) {
+            // We've just finished discarding a very large frame.
+            // Go back to the initial state.
+            discardingTooLongFrame = false;
+            buffer.skipBytes(minFrameLength + minDelimLength);
+
+            int tooLongFrameLength = this.tooLongFrameLength;
+            this.tooLongFrameLength = 0;
+            if (!failFast) {
+                fail(tooLongFrameLength);
+            }
+            return null;
+        }
+
+        if (minFrameLength > maxFrameLength) {
+            // Discard read frame.
+            buffer.skipBytes(minFrameLength + minDelimLength);
+            fail(minFrameLength);
+            return null;
+        }
+
+        if (stripDelimiter) {
+            frame = buffer.readRetainedSlice(minFrameLength);
+            buffer.skipBytes(minDelimLength);
+        } else {
+            frame = buffer.readRetainedSlice(minFrameLength + minDelimLength);
+        }
+
+        return frame;
+    } else {
+        if (!discardingTooLongFrame) {
+            if (buffer.readableBytes() > maxFrameLength) {
+                // Discard the content of the buffer until a delimiter is found.
+                tooLongFrameLength = buffer.readableBytes();
+                buffer.skipBytes(buffer.readableBytes());
+                discardingTooLongFrame = true;
+                if (failFast) {
+                    fail(tooLongFrameLength);
+                }
+            }
+        } else {
+            // Still discarding the buffer since a delimiter is not found.
+            tooLongFrameLength += buffer.readableBytes();
+            buffer.skipBytes(buffer.readableBytes());
+        }
+        return null;
+    }
+}
+```
+
+##### 8.6 基于长度域解码器分析 - 最为常用
+
+lengthFieldOffset:长度域在二进制数据流中的偏移量是多少
+
+lengthFieldLength:从长度域开始往后的几个字节组合起来表表示长度
+
+lengthAdjustment：
+
+initialBytesToStrip：
 
 
+
+![1573721396286](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573721396286.png)
+
+io.netty.handler.codec.LengthFieldBasedFrameDecoder
+
+```java
+/**
+ * <b>lengthFieldOffset</b>   = <b>0</b>
+ * <b>lengthFieldLength</b>   = <b>2</b>
+ * lengthAdjustment    = 0
+ * initialBytesToStrip = 0 (= do not strip header)
+ *
+ * BEFORE DECODE (14 bytes)         AFTER DECODE (14 bytes)
+ * +--------+----------------+      +--------+----------------+
+ * | Length | Actual Content |----->| Length | Actual Content |
+ * | 0x000C | "HELLO, WORLD" |      | 0x000C | "HELLO, WORLD" |
+ * +--------+----------------+      +--------+----------------+
+ * ......
+*/
+public class LengthFieldBasedFrameDecoder extends ByteToMessageDecoder {
+
+    private final ByteOrder byteOrder;
+    private final int maxFrameLength;
+    private final int lengthFieldOffset;
+    private final int lengthFieldLength;
+    private final int lengthFieldEndOffset;
+    private final int lengthAdjustment;
+    private final int initialBytesToStrip;
+    private final boolean failFast;
+    private boolean discardingTooLongFrame;
+    private long tooLongFrameLength;
+    private long bytesToDiscard;
+}
+```
+
+##### 8.7 基于长度域解码器步骤
+
++ 计算要抽取的数据包长度
++ 跳过字节逻辑处理
++ 丢弃模式下的处理
+
+![1573722537517](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573722537517.png)
+
+##### 8.8 解码器总结
+
+#### 九.  netty 编码
+
+##### 9.1 问题：如何把对象变成字节流，最终写到socket底层
+
++ encode() ——分别ByteBuf对象，encoder调用抽象的encode方法将接收到的数据填充到ByteBuf对象
++ write() ——传递到Head节点，通过底层unsafe将当前的byteBuf塞到Unsafe底层维护的一个缓冲区对象中，同时计算写缓冲区数据是否超过高水位，若写缓冲区中可写的字计数 > 64 K, 就改变channel的状态为不可写
++ flush() ——传递到Head节点，调用unsafe的flush方法，调整指针 -》通过for循环不断从写缓冲区拿byteBuf -》转化成JDK底层可以接收的ByteBuffer-》通过JDK的channel将byteBuffer写出去-》将写完一个将缓冲区中当前节点进行删除-》若写缓冲区中可写的字计数 < 32 K, 就改变channel的状态为可写
+
+![1573723426608](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573723426608.png)
+
+```java
+/**
+ * @Auther: leh
+ * @Date: 2019/11/15 15:55
+ * @Description: 将user对象编码
+ * ---------------------
+ * |   4    |  4  |  ?   |
+ * ---------------------
+ * | length | age | name |
+ * ---------------------
+ */
+public class Encoder extends MessageToByteEncoder<User> {
+    @Override
+    protected void encode(ChannelHandlerContext ctx, User user, ByteBuf out) throws Exception {
+        byte[] bytes = user.getName().getBytes();
+        out.writeInt(4 + bytes.length);
+        out.writeInt(user.getAge());
+        out.writeBytes(bytes);
+    }
+}
+```
+
+##### 9.2 writeAndFlush 抽象步骤
+
++ 从tail节点开始往前传播
++ 逐个调用channelHanler的write方法 
++ 逐个调用channelHandler的flush方法  - 真正写到底层去
+
+```java
+public class BizHandler extends ChannelInboundHandlerAdapter {
+    @Override
+    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        User user = new User(18, "zhangsan");
+        ctx.channel().writeAndFlush(user);
+    }
+}
+```
+
+io.netty.channel.AbstractChannelHandlerContext#writeAndFlush(java.lang.Object, io.netty.channel.ChannelPromise)
+
+```java
+public ChannelFuture writeAndFlush(Object msg, ChannelPromise promise) {
+    if (msg == null) {
+        throw new NullPointerException("msg");
+    }
+
+    if (!validatePromise(promise, true)) {
+        ReferenceCountUtil.release(msg);
+        // cancelled
+        return promise;
+    }
+
+    write(msg, true, promise);
+
+    return promise;
+}
+
+...
+    
+private void write(Object msg, boolean flush, ChannelPromise promise) {
+        AbstractChannelHandlerContext next = findContextOutbound();
+        final Object m = pipeline.touch(msg, next);
+        EventExecutor executor = next.executor();
+        if (executor.inEventLoop()) {
+            if (flush) {
+                next.invokeWriteAndFlush(m, promise);
+            } else {
+                next.invokeWrite(m, promise);
+            }
+        } else {
+            AbstractWriteTask task;
+            if (flush) {
+                task = WriteAndFlushTask.newInstance(next, m, promise);
+            }  else {
+                task = WriteTask.newInstance(next, m, promise);
+            }
+            safeExecute(executor, task, promise, m);
+        }
+    }
+
+...
+    
+ private void invokeWriteAndFlush(Object msg, ChannelPromise promise) {
+        if (invokeHandler()) {
+            invokeWrite0(msg, promise);
+            invokeFlush0();
+        } else {
+            writeAndFlush(msg, promise);
+        }
+    }
+
+...
+
+private void invokeWrite(Object msg, ChannelPromise promise) {
+        if (invokeHandler()) {
+            invokeWrite0(msg, promise);
+        } else {
+            write(msg, promise);
+        }
+    }
+```
+
+##### 9.3 抽象编码器处理逻辑 MessageToByteEncoder
+
+将一个对象变成字节并写到socket底层。
+
+![1573809565828](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573809565828.png)
+
+io.netty.handler.codec.MessageToByteEncoder#write
+
+```java
+public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {
+    ByteBuf buf = null;
+    try {
+        //判断当前encoder处理器是否能处理这个对象
+        if (acceptOutboundMessage(msg)) {
+            @SuppressWarnings("unchecked")
+            I cast = (I) msg;
+            buf = allocateBuffer(ctx, cast, preferDirect);
+            try {
+                //最终会将转化后的对象填充到分配到的buf中
+                encode(ctx, cast, buf);
+            } finally {
+                //释放原始对象
+                ReferenceCountUtil.release(cast);
+            }
+
+            if (buf.isReadable()) {
+                //传播写好的数据直到Head节点
+                ctx.write(buf, promise);
+            } else {
+                buf.release();
+                ctx.write(Unpooled.EMPTY_BUFFER, promise);
+            }
+            buf = null;
+        } else {
+            ctx.write(msg, promise);
+        }
+    } catch (EncoderException e) {
+        throw e;
+    } catch (Throwable e) {
+        throw new EncoderException(e);
+    } finally {
+        if (buf != null) {
+            buf.release();
+        }
+    }
+}
+
+...
+    
+protected ByteBuf allocateBuffer(ChannelHandlerContext ctx, @SuppressWarnings("unused") I msg,boolean preferDirect) throws Exception {
+        if (preferDirect) {
+            return ctx.alloc().ioBuffer();//分配堆外内存
+        } else {
+            return ctx.alloc().heapBuffer();//分配堆内内存
+        }
+    }
+```
+
+##### 9.4 写buffer队列
+
+![1573810274104](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573810274104.png)
+
+encoder将传进来的user对象转换成bytebuf传递到head节点，最终调用head节点的write方法
+
+io.netty.channel.DefaultChannelPipeline.HeadContext#write
+
+```java
+public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {
+    unsafe.write(msg, promise);
+}
+```
+
+io.netty.channel.AbstractChannel.AbstractUnsafe#write
+
+```java
+public final void write(Object msg, ChannelPromise promise) {
+    assertEventLoop();
+
+    ChannelOutboundBuffer outboundBuffer = this.outboundBuffer;
+    if (outboundBuffer == null) {
+        // If the outboundBuffer is null we know the channel was closed and so
+        // need to fail the future right away. If it is not null the handling of the rest
+        // will be done in flush0()
+        // See https://github.com/netty/netty/issues/2362
+        safeSetFailure(promise, WRITE_CLOSED_CHANNEL_EXCEPTION);
+        // release message now to prevent resource-leak
+        ReferenceCountUtil.release(msg);
+        return;
+    }
+
+    int size;
+    try {
+        msg = filterOutboundMessage(msg);
+        size = pipeline.estimatorHandle().size(msg);
+        if (size < 0) {
+            size = 0;
+        }
+    } catch (Throwable t) {
+        safeSetFailure(promise, t);
+        ReferenceCountUtil.release(msg);
+        return;
+    }
+
+    outboundBuffer.addMessage(msg, size, promise);
+}
+```
+
+**write-写buffer队列**
+
++ direct化ByteBuf
+
+  + 将非堆外内存转化为堆外内存（零拷贝）
+
+  io.netty.channel.nio.AbstractNioByteChannel#filterOutboundMessage
+
+  ```java
+  protected final Object filterOutboundMessage(Object msg) {
+      if (msg instanceof ByteBuf) {
+          ByteBuf buf = (ByteBuf) msg;
+          if (buf.isDirect()) {
+              return msg;
+          }
+          return newDirectBuffer(buf);
+      }
+  
+      if (msg instanceof FileRegion) {
+          return msg;
+      }
+      throw new UnsupportedOperationException(
+              "unsupported message type: " + StringUtil.simpleClassName(msg) + EXPECTED_TYPES);
+  }
+  ```
+
++ 插入写队列（写缓冲区 outBoundBuffer）
+
+  io.netty.channel.ChannelOutboundBuffer#addMessage
+
+  ```java
+  //三个指针
+  // Entry(flushedEntry) --> ... Entry(unflushedEntry) --> ... Entry(tailEntry)
+  //
+  // The Entry that is the first in the linked-list structure that was flushed
+  private Entry flushedEntry;
+  // The Entry which is the first unflushed in the linked-list structure
+  private Entry unflushedEntry;
+  // The Entry which represents the tail of the buffer
+  private Entry tailEntry;
+  
+  ......
+  
+  public void addMessage(Object msg, int size, ChannelPromise promise) {
+      Entry entry = Entry.newInstance(msg, size, total(msg), promise);
+      if (tailEntry == null) {
+          flushedEntry = null;
+          tailEntry = entry;
+      } else {
+          Entry tail = tailEntry;
+          tail.next = entry;
+          tailEntry = entry;
+      }
+      if (unflushedEntry == null) {
+          unflushedEntry = entry;
+      }
+  
+      // increment pending bytes after adding message to the unflushed arrays.
+      // See https://github.com/netty/netty/issues/1619
+      incrementPendingOutboundBytes(size, false);
+  }
+  ```
+
+  ![1573811187637](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573811187637.png)
+
+  ![1573811204053](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573811204053.png)
+
+  ![1573811231862](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573811231862.png)
+
++ 设置写状态
+
+  + 若写缓冲区中的数据 > 默认的高水位 64k 就设置当前的channel为不可写状态
+
+  io.netty.channel.ChannelOutboundBuffer#incrementPendingOutboundBytes(long, boolean)
+
+  ```java
+  private void incrementPendingOutboundBytes(long size, boolean invokeLater) {
+      if (size == 0) {
+          return;
+      }
+  
+      long newWriteBufferSize = TOTAL_PENDING_SIZE_UPDATER.addAndGet(this, size);
+      if (newWriteBufferSize > channel.config().getWriteBufferHighWaterMark()) {
+          setUnwritable(invokeLater);
+      }
+  }
+  
+  ...
+    
+  // 自旋 + CAS
+  private void setUnwritable(boolean invokeLater) {
+          for (;;) {
+              final int oldValue = unwritable;
+              final int newValue = oldValue | 1;
+              if (UNWRITABLE_UPDATER.compareAndSet(this, oldValue, newValue)) {
+                  if (oldValue == 0 && newValue != 0) {
+                      fireChannelWritabilityChanged(invokeLater);
+                  }
+                  break;
+              }
+          }
+      }
+  ```
+
+##### 9.5 刷新buffer队列
+
+**flush - 刷新buffer队列**   将缓存区中的数据写入socket通道
+
++ 添加刷新标志并设置写状态
+
+  + 移动三个指针  
+  + 若写缓冲区中的数据 < 默认的低水位 32k 就设置当前的channel为可写状态
+
+  ![1573813336823](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1573813336823.png)
+
++ 遍历buffer队列，过滤ByteBuf
+
+  
+
+  
+
++ 调用jdk底层的API进行自选写
+
+  
+
+io.netty.channel.DefaultChannelPipeline.HeadContext#flush
+
+```java
+public void flush(ChannelHandlerContext ctx) throws Exception {
+    unsafe.flush();
+}
+```
+
+io.netty.channel.AbstractChannel.AbstractUnsafe#flush
+
+```java
+public final void flush() {
+    assertEventLoop();
+
+    ChannelOutboundBuffer outboundBuffer = this.outboundBuffer;
+    if (outboundBuffer == null) {
+        return;
+    }
+    outboundBuffer.addFlush();
+    flush0();
+}
+```
+
+
+
+io.netty.channel.ChannelOutboundBuffer#decrementPendingOutboundBytes(long, boolean, boolean)
+
+```java
+private void decrementPendingOutboundBytes(long size, boolean invokeLater, boolean notifyWritability) {
+    if (size == 0) {
+        return;
+    }
+    long newWriteBufferSize = TOTAL_PENDING_SIZE_UPDATER.addAndGet(this, -size);
+    if (notifyWritability && newWriteBufferSize < channel.config().getWriteBufferLowWaterMark()) {
+        setWritable(invokeLater);
+    }
+}
+```
+
+io.netty.channel.DefaultChannelConfig#writeBufferWaterMark
+
+```java
+private volatile WriteBufferWaterMark writeBufferWaterMark = WriteBufferWaterMark.DEFAULT;
+```
+
+io.netty.channel.WriteBufferWaterMark
+
+```java
+public final class WriteBufferWaterMark {
+
+    private static final int DEFAULT_LOW_WATER_MARK = 32 * 1024;
+    private static final int DEFAULT_HIGH_WATER_MARK = 64 * 1024;
+
+    public static final WriteBufferWaterMark DEFAULT =
+            new WriteBufferWaterMark(DEFAULT_LOW_WATER_MARK, DEFAULT_HIGH_WATER_MARK, false);
+
+    private final int low;
+    private final int high;
+    ...
+}
+```
+
+
+
+io.netty.channel.nio.AbstractNioByteChannel#doWrite
+
+```java
+protected void doWrite(ChannelOutboundBuffer in) throws Exception {
+    int writeSpinCount = -1;
+
+    boolean setOpWrite = false;
+    for (;;) {
+        Object msg = in.current();
+        if (msg == null) {
+            // Wrote all messages.
+            clearOpWrite();
+            // Directly return here so incompleteWrite(...) is not called.
+            return;
+        }
+
+        if (msg instanceof ByteBuf) {
+            ByteBuf buf = (ByteBuf) msg;
+            int readableBytes = buf.readableBytes();
+            if (readableBytes == 0) {
+                in.remove();
+                continue;
+            }
+
+            boolean done = false;
+            long flushedAmount = 0;
+            if (writeSpinCount == -1) {
+                // 并发编程中使用自旋可以提高内存使用率和吞吐量
+                writeSpinCount = config().getWriteSpinCount();
+            }
+            for (int i = writeSpinCount - 1; i >= 0; i --) {
+                //将buf写到socket
+                int localFlushedAmount = doWriteBytes(buf);
+                if (localFlushedAmount == 0) {
+                    setOpWrite = true;
+                    break;
+                }
+
+                flushedAmount += localFlushedAmount;
+                if (!buf.isReadable()) {
+                    done = true;
+                    break;
+                }
+            }
+
+            in.progress(flushedAmount);
+
+            if (done) {
+                in.remove();
+            } else {
+                // Break the loop and so incompleteWrite(...) is called.
+                break;
+            }
+        } else if (msg instanceof FileRegion) {//认为是从磁盘读到socket
+            FileRegion region = (FileRegion) msg;
+            boolean done = region.transferred() >= region.count();
+           	...
+        } else {
+            // Should not reach here.
+            throw new Error();
+        }
+    }
+    incompleteWrite(setOpWrite);
+}
+```
+
+io.netty.channel.ChannelConfig#getWriteSpinCount
+
+```java
+/**
+	自旋提高写的吞吐量，默认自旋16次
+ * Returns the maximum loop count for a write operation until
+ * {@link WritableByteChannel#write(ByteBuffer)} returns a non-zero value.
+ * It is similar to what a spin lock is used for in concurrency programming.
+ * It improves memory utilization and write throughput depending on
+ * the platform that JVM runs on.  The default value is {@code 16}.
+ */
+int getWriteSpinCount();
+```
+
+io.netty.channel.socket.nio.NioSocketChannel#doWriteBytes
+
+```java
+protected int doWriteBytes(ByteBuf buf) throws Exception {
+    final int expectedWrittenBytes = buf.readableBytes();
+    return buf.readBytes(javaChannel(), expectedWrittenBytes);
+}
+```
+
+io.netty.buffer.PooledDirectByteBuf#readBytes(java.nio.channels.GatheringByteChannel, int)
+
+```java
+public int readBytes(GatheringByteChannel out, int length) throws IOException {
+    checkReadableBytes(length);
+    int readBytes = getBytes(readerIndex, out, length, true);
+    readerIndex += readBytes;
+    return readBytes;
+}
+```
+
+io.netty.buffer.PooledDirectByteBuf#getBytes(int, java.nio.channels.GatheringByteChannel, int, boolean)
+
+```java
+// GatheringByteChannel 是 JDK底层的
+private int getBytes(int index, GatheringByteChannel out, int length, boolean internal) throws IOException {
+    checkIndex(index, length);
+    if (length == 0) {
+        return 0;
+    }
+
+    //JDK相关的ByteBUffer 将netty自定以的byteBuf塞到JDK的ByteBUffer
+    ByteBuffer tmpBuf;
+    if (internal) {
+        tmpBuf = internalNioBuffer();
+    } else {
+        tmpBuf = memory.duplicate();
+    }
+    index = idx(index);
+    tmpBuf.clear().position(index).limit(index + length);
+    // 调用JDK底层的write方法，将tmpBuf写到socket通道中，并返回写的字节数
+    return out.write(tmpBuf);
+}
+```
+
+##### 9.6 netty编码总结
