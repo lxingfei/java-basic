@@ -17,6 +17,8 @@ public class ServerBusinessHandler extends SimpleChannelInboundHandler<ByteBuf> 
     protected void channelRead0(ChannelHandlerContext ctx, ByteBuf msg) {
         ByteBuf data = Unpooled.directBuffer();
         data.writeBytes(msg);
+        //程序的性能都是在getResult这个地方被堵住了，基于reactor模型，最终一条线程可能影响这条线程管理的所有的连接
+        //解决办法：将比较耗时的部分扔到业务线程池后台执行
         Object result = getResult(data);
         ctx.channel().writeAndFlush(result);
     }
