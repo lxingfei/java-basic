@@ -5517,3 +5517,907 @@ private int getBytes(int index, GatheringByteChannel out, int length, boolean in
 ```
 
 ##### 9.6 netty编码总结
+
+#### 十. Netty性能优化工具类解析
+
+##### 10.1 性能优化工具类概述
+
++ FastThreadLocal 
+
+  作用同ThreadLocal，但比ThreadLocal更快。多线程访问同一变量的时候，通过线程本地化的方式(线程隔离，独享变量，并且对变量修改不影响另外的线程)，避免多线程竞争，保证同一个线程里面状态一致性的同时优化程序性能。
+
++ Recycler 
+
+  实现了轻量级别的对象池机制，对象池的作用：提升性能
+
+  + 不需要每次都去new对象，分配内存，减少内存使用率
+  + 避免反复创建对象，减少JVM GC的压力
+
+##### 10.2 FastThreadLocal的使用
+
+##### 10.3 FastThreadLocal的创建 和 get()实现
+
++ FastThreadLocal的创建
+
+  在JVM当中，若一个类中通过new去创建一个FastThreadLocal，它就会带来一个索引值，第一个调用new FastThreadLocal()方法，它的索引值就是0，若当前类或其他类中第二个去new FastThreadLocal()，它的索引值就是1，每一个FastThreadLocal在JVM当中都有唯一一个index。
+
+  L0, L1, L2......索引
+
+![1574052744621](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1574052744621.png)
+
++ FastThreadLocal get()实现
+
+  + 获取ThreadLocalMap
+
+    ![1574053487709](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1574053487709.png)
+
+    
+
+  + 直接通过索引取出对象
+
+    ![1574053616076](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1574053616076.png)
+
+  + 初始化
+
+##### 10.4 FastThreadLocal的set实现
+
++ 获取ThreadLocalMap
++ 直接通过索引set对象
++ remove对象
+
+##### 10.5 轻量级对象池-Recycler的使用
+
+##### 10.6 Recycler的创建
+
+虚线代表stack
+
+![1574059488695](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1574059488695.png)
+
+##### 10.7 从Recycler中获取对象
+
++ 获取当前线程的stack
++ 从Stack里面弹出对象
++ 创建对象并绑定到Stack
+
+##### 10.8 同线程回收对象到Recycler
+
+##### 10.9 异线程回收对象到Recycler
+
++ 获取WeakOrderQueue
+
++ 创建WeakOrderQueue
+
++ 将对象追加到WeakOrderQueue
+
+  ![1574063117520](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1574063117520.png)
+
+io.netty.util.Recycler.WeakOrderQueue.Link
+
+```java
+private static final class Link extends AtomicInteger {
+    private final DefaultHandle<?>[] elements = new DefaultHandle[LINK_CAPACITY];
+
+    private int readIndex;
+    private Link next;
+}
+```
+
+![1574062313301](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1574062313301.png)
+
+
+
+##### 10.10 异线程收割对象
+
++ 获取当前线程的Stack
+
++ 从Stack里面弹出对象
+
++ 创建对象并绑定到Stack
+
+  ![1574062667178](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1574062667178.png)
+
+io.netty.util.Recycler.Stack#scavenge
+
+```java
+boolean scavenge() {
+    // continue an existing scavenge, if any
+    if (scavengeSome()) {
+        return true;
+    }
+
+    // reset our scavenge cursor
+    prev = null;
+    cursor = head;
+    return false;
+}
+```
+
+##### 10.11 性能优化工具类总结
+
+#### 十一. Netty设计模式的应用
+
++ 单例模式
+
+  + 一个类全局只有一个对象
+
+  + 延迟创建 （懒汉模式）
+
+  + 避免线程安全问题
+
+  + netty中应用 -- 简单优雅
+
+    + io.netty.handler.timeout.ReadTimeoutException
+
+    ```java
+    public final class ReadTimeoutException extends TimeoutException {
+    
+        private static final long serialVersionUID = 169287984113283421L;
+    
+        //加载类的时候初始化INSTANCE，JVM在加载ReadTimeoutException类的时候默认会加上同步块，以此来保证线程安全。--饿汉模式
+        public static final ReadTimeoutException INSTANCE = new ReadTimeoutException();
+    
+        //构造私有化，实现全局只有一个对象
+        private ReadTimeoutException() { }
+    }
+    ```
+
+    + io.netty.handler.codec.mqtt.MqttEncoder
+
+      ```java
+      @ChannelHandler.Sharable
+      public final class MqttEncoder extends MessageToMessageEncoder<MqttMessage> {
+      
+          public static final MqttEncoder INSTANCE = new MqttEncoder();
+      
+          private MqttEncoder() { }
+          
+          ......
+      }
+      ```
+
+
+
++ 策略模式
+
+  + 封装一些列可相互替换的算法家族
+
+  + 动态选择莫一种策略
+
+  + 普通示例
+
+    ```java
+    /**
+     * @see DefaultEventExecutorChooserFactory#newChooser(EventExecutor[])
+     */
+    public class Strategy {
+        private Cache cacheMemory = new CacheMemoryImpl();
+        private Cache cacheRedis = new CacheRedisImpl();
+    
+        public interface Cache {
+            boolean add(String key, Object object);
+        }
+    
+        public class CacheMemoryImpl implements Cache {
+            @Override
+            public boolean add(String key, Object object) {
+                // 保存到map
+                return false;
+            }
+        }
+    
+        public class CacheRedisImpl implements Cache {
+            @Override
+            public boolean add(String key, Object object) {
+                // 保存到redis
+                return false;
+            }
+        }
+    
+        public Cache getCache(String key) {
+            if (key.length() < 10) {
+                return cacheRedis;
+            }
+            return cacheMemory;
+        }
+    }
+    ```
+
+  + netty中应用
+
+    + io.netty.util.concurrent.DefaultEventExecutorChooserFactory#newChooser
+
+      ```java
+      public EventExecutorChooser newChooser(EventExecutor[] executors) {
+          if (isPowerOfTwo(executors.length)) {
+              return new PowerOfTowEventExecutorChooser(executors);
+          } else {
+              return new GenericEventExecutorChooser(executors);
+          }
+      }
+      ```
+
+  
+
++ 装饰者模式
+
+  + 装饰者和被装饰者继承同一接口
+
+  + 装饰者给被装饰者动态修改行为
+
+  + 普通示例
+
+    ```java
+    
+    /**
+     * @see io.netty.buffer.WrappedByteBuf;
+     * @see io.netty.buffer.UnreleasableByteBuf
+     * @see io.netty.buffer.SimpleLeakAwareByteBuf
+     */
+    public class Decorate {
+    
+        // 优惠方案
+        public interface OnSalePlan {
+            float getPrice(float oldPrice);
+        }
+    
+        // 无优惠
+        public static class NonePlan implements OnSalePlan {
+            static final OnSalePlan INSTANCE = new NonePlan();
+    
+            private NonePlan() {
+    
+            }
+    
+            public float getPrice(float oldPrice) {
+                return oldPrice;
+            }
+        }
+    
+        // 立减优惠
+        public static class KnockPlan implements OnSalePlan {
+            // 立减金额
+            private float amount;
+    
+            public KnockPlan(float amount) {
+                this.amount = amount;
+            }
+    
+            public float getPrice(float oldPrice) {
+                return oldPrice - amount;
+            }
+        }
+    
+    
+        // 打折优惠
+        public static class DiscountPlan implements OnSalePlan {
+            // 折扣
+            public int discount;
+            private OnSalePlan previousPlan;
+    
+            public DiscountPlan(int discount, OnSalePlan previousPlan) {
+                this.discount = discount;
+                this.previousPlan = previousPlan;
+            }
+    
+            public DiscountPlan(int discount) {
+                this(discount, NonePlan.INSTANCE);
+            }
+    
+            public float getPrice(float oldPrice) {
+                return previousPlan.getPrice(oldPrice) * discount / 10;
+            }
+        }
+    
+        public static void main(String[] args) {
+            DiscountPlan simpleDiscountPlan = new DiscountPlan(5);
+            System.out.println(simpleDiscountPlan.getPrice(100));
+    
+            KnockPlan previousPlan = new KnockPlan(50);
+            DiscountPlan complexDiscountPlan = new DiscountPlan(5, previousPlan);
+            System.out.println(complexDiscountPlan.getPrice(100));
+        }
+    
+    }
+    ```
+
+  + netty中应用
+
+    + io.netty.buffer.WrappedByteBuf
+
+    ```java
+    class WrappedByteBuf extends ByteBuf {
+    
+        protected final ByteBuf buf;
+    
+        protected WrappedByteBuf(ByteBuf buf) {
+            if (buf == null) {
+                throw new NullPointerException("buf");
+            }
+            this.buf = buf;
+        }
+    
+        @Override
+        public final boolean hasMemoryAddress() {
+            return buf.hasMemoryAddress();
+        }
+    
+        @Override
+        public final long memoryAddress() {
+            return buf.memoryAddress();
+        }
+    
+        @Override
+        public final int capacity() {
+            return buf.capacity();
+        }
+        
+        ...
+            
+    }
+    ```
+
+    + io.netty.buffer.UnreleasableByteBuf
+
+    + io.netty.buffer.SimpleLeakAwareByteBuf
+
+      ```java
+      final class SimpleLeakAwareByteBuf extends WrappedByteBuf {
+      
+          private final ResourceLeak leak;
+      
+          SimpleLeakAwareByteBuf(ByteBuf buf, ResourceLeak leak) {
+              super(buf);
+              this.leak = leak;
+          }
+      
+          @Override
+          public ByteBuf touch() {
+              return this;
+          }
+      
+          @Override
+          public ByteBuf touch(Object hint) {
+              return this;
+          }
+      
+          @Override
+          public boolean release() {
+              boolean deallocated =  super.release();
+              if (deallocated) {
+                  leak.close();
+              }
+              return deallocated;
+          }
+          
+          ...
+              
+      }
+      ```
+
++ 观察者模式
+
+  + 观察者和被观察者
+
+  + 观察者订阅消息，被观察者发布消息
+
+  + 订阅则能收到，取消订阅则收不到
+
+  + 普通示例
+
+    ```java
+    public class ObserverTest {
+        /**
+         * 被观察者
+         */
+        public interface Observerable {
+            void registerObserver(Observer o);
+    
+            void removeObserver(Observer o);
+    
+            void notifyObserver();
+        }
+    
+        /**
+         * 观察者
+         */
+        public interface Observer {
+            void notify(String message);
+        }
+    
+        public static class Girl implements Observerable {
+            private String message;
+    
+            List<Observer> observerList;
+    
+            public Girl() {
+                observerList = new ArrayList<>();
+            }
+    
+    
+            @Override
+            public void registerObserver(Observer o) {
+                observerList.add(o);
+            }
+    
+            @Override
+            public void removeObserver(Observer o) {
+                observerList.remove(o);
+            }
+    
+            @Override
+            public void notifyObserver() {
+                for (Observer observer : observerList) {
+                    observer.notify(message);
+                }
+            }
+    
+            public void hasBoyFriend() {
+                message = "女神有男朋友了";
+                notifyObserver();
+            }
+    
+            public void getMarried() {
+                message = "女神结婚了，你们都死心吧!";
+                notifyObserver();
+            }
+    
+            public void getSingled() {
+                message = "女神单身了，你们有机会了!";
+                notifyObserver();
+            }
+        }
+    
+        /**
+         * 男孩
+         */
+        public static class Boy implements Observer {
+            public void notify(String message) {
+                System.out.println("男孩收到消息：" + message);
+            }
+        }
+    
+        /**
+         * 男人
+         */
+        public static class Man implements Observer {
+            public void notify(String message) {
+                System.out.println("男人收到消息：" + message);
+            }
+        }
+    
+        /**
+         * 老男人
+         */
+        public static class OldMan implements Observer {
+            public void notify(String message) {
+                System.out.println("老男人收到消息：" + message);
+            }
+        }
+    
+        public static void main(String[] args) {
+            Girl girl = new Girl();
+            Boy boy = new Boy();
+            Man man = new Man();
+            OldMan oldMan = new OldMan();
+    
+            // 通知男孩、男人、老男人，女神有男朋友了
+            girl.registerObserver(boy);
+            girl.registerObserver(man);
+            girl.registerObserver(oldMan);
+            girl.hasBoyFriend();
+            System.out.println("====================");
+    
+            // 通知男孩，男人，女神结婚了
+            girl.removeObserver(oldMan);
+            girl.getMarried();
+            System.out.println("====================");
+    
+    
+            girl.registerObserver(oldMan);
+            girl.getSingled();
+        }
+    
+    
+        //netty中的观察者模式/channel-future模式
+        public void write(NioSocketChannel channel, Object object) {
+            //writeAndFlush 方法 本质是创建被观察者 channelFuture
+            ChannelFuture channelFuture = channel.writeAndFlush(object);
+            //addListener 本质是向被观察者中添加一系列观察者
+            channelFuture.addListener(future -> {
+                if (future.isSuccess()) {
+    
+                } else {
+    
+                }
+            });
+            channelFuture.addListener(future -> {
+                if (future.isSuccess()) {
+    
+                } else {
+    
+                }
+            });
+            channelFuture.addListener(future -> {
+                if (future.isSuccess()) {
+    
+                } else {
+    
+                }
+            });
+        }
+    
+    }
+    ```
+
+  + netty中应用
+
+    io.netty.channel.AbstractChannelHandlerContext#writeAndFlush(java.lang.Object, io.netty.channel.ChannelPromise)
+
+    
+
++ 迭代器模式
+  + 迭代器接口  io.netty.buffer.ByteBuf#forEachByte(io.netty.util.ByteProcessor)
+    + io.netty.buffer.CompositeByteBuf  实现零拷贝
+  + 对容器里面的各个对象进行访问
+
++ 责任链模式
+
+  + 责任处理接口  io.netty.channel.ChannelHandler
+
+  + 创建链，添加删除责任处理器接口 io.netty.channel.ChannelPipeline
+
+  + 上下文  io.netty.channel.ChannelHandlerContext
+
+  + 责任终止机制
+
+    ![1574070919279](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1574070919279.png)
+
+#### 十二. Netty高并发性能调优
+
+##### 12.1 单机百万连接调优
+
++ 如何模拟百万连接
+
+  + 两台虚拟机：一个客户端一个服务端如何模拟单机百万连接
+  + 客户端代码 打成jar包运行在客户端虚拟机
+
+  ```java
+  public class Client {
+  
+      private static final String SERVER_HOST = "192.168.1.42";
+  
+      public static void main(String[] args) {
+          new Client().start(BEGIN_PORT, N_PORT);
+      }
+  
+      public void  start(final int beginPort, int nPort) {
+          System.out.println("client starting....");
+          EventLoopGroup eventLoopGroup = new NioEventLoopGroup();
+          final Bootstrap bootstrap = new Bootstrap();
+          bootstrap.group(eventLoopGroup);
+          bootstrap.channel(NioSocketChannel.class);
+          bootstrap.option(ChannelOption.SO_REUSEADDR, true);
+          bootstrap.handler(new ChannelInitializer<SocketChannel>() {
+              @Override
+              protected void initChannel(SocketChannel ch) {
+              }
+          });
+  
+  
+          int index = 0;
+          int port;
+          while (!Thread.interrupted()) {
+              port = beginPort + index;
+              try {
+                  ChannelFuture channelFuture = bootstrap.connect(SERVER_HOST, port);
+                  channelFuture.addListener((ChannelFutureListener) future -> {
+                      if (!future.isSuccess()) {
+                          System.out.println("connect failed, exit!");
+                          System.exit(0);
+                      }
+                  });
+                  channelFuture.get();
+              } catch (Exception e) {
+              }
+  
+              if (++index == nPort) {
+                  index = 0;
+              }
+          }
+      }
+  }
+  ```
+
+  + 服务端代码 打成jar包运行在服务端虚拟机
+
+  ```java
+  public final class Server {
+  
+      public static void main(String[] args) {
+          new Server().start(BEGIN_PORT, N_PORT);
+      }
+  
+      public void start(int beginPort, int nPort) {
+          System.out.println("server starting....");
+  
+          EventLoopGroup bossGroup = new NioEventLoopGroup();
+          EventLoopGroup workerGroup = new NioEventLoopGroup();
+  
+          ServerBootstrap bootstrap = new ServerBootstrap();
+          bootstrap.group(bossGroup, workerGroup);
+          bootstrap.channel(NioServerSocketChannel.class);
+          bootstrap.childOption(ChannelOption.SO_REUSEADDR, true);
+  
+          bootstrap.childHandler(new ConnectionCountHandler());
+  
+  
+          for (int i = 0; i < nPort; i++) {
+              int port = beginPort + i;
+              bootstrap.bind(port).addListener((ChannelFutureListener) future -> {
+                  System.out.println("bind success in port: " + port);
+              });
+          }
+          System.out.println("server started!");
+      }
+  }
+  ```
+
+  + 连接数统计
+
+  ```java
+  @Sharable
+  public class ConnectionCountHandler extends ChannelInboundHandlerAdapter {
+  
+      private AtomicInteger nConnection = new AtomicInteger();
+  
+      //每隔2s统计连接数
+      public ConnectionCountHandler() {
+          Executors.newSingleThreadScheduledExecutor().scheduleAtFixedRate(() -> {
+              System.out.println("connections: " + nConnection.get());
+          }, 0, 2, TimeUnit.SECONDS);
+  
+      }
+  
+      @Override
+      public void channelActive(ChannelHandlerContext ctx) {
+          nConnection.incrementAndGet();
+      }
+  
+      @Override
+      public void channelInactive(ChannelHandlerContext ctx) {
+          nConnection.decrementAndGet();
+      }
+  
+  }
+  ```
+
+  启动服务端，通常绑定一个端口如8000，然后客户端去连接，默认情况下端口号的大小是有限制的，最大65535，而1024及1024以下的端口只能被root用户使用，在扣除一些常用的端口，实际情况是，客户端可以去连接服务端的端口只有6w左右。最多只能实现单机6w连接。
+
+  要达到百万，简单的办法：使用十几个客户端，每个客户端去连接相同的服务端端口，但同时也是比较麻烦的，因为要同时启动十几个客户端。
+
+  另一个办法：服务端开启100个端口。对客户端而言，同一个端口号可以连接Server不同的端口，6w个端口连接服务端100个端口，累加起来就是600w。
+
+  TCP基础知识：**四元组概念**：源IP地址、目的IP地址、源端口、目的端口。、
+
+  **TCP会话(TCP_Session_IDT)可以通过四元组<源IP地址、目的IP地址、源端口号和目的端口号>唯一标识**，源端口相同而目的端口不同，TCP底层认为是不同的TCP连接。
+
+  
+
+  ![1574147278024](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1574147278024.png)
+
++ 突破局部文件句柄限制
+  + linux系统中，默认情况下，单个进程可以打开的文件句柄数是有限的 
+  
+    ulimit -n  ==》1024
+  
+  + 一个TCP连接对应一个文件句柄 对于应用程序而言，一个服务端默认建立的连接数是有限制的。
+  
+  /etc/security/limits.conf
+  
+  `*`表示当前用户   
+  
+  `*`  hard nofile  1000000
+  
+  `*`  soft  nofile  1000000
+  
+  追加后重启虚拟机，是配置生效
+  
++ 突破全局文件句柄限制
+
+  ​	cat /proc/sys/fs/file-max
+
+  ​	echo 1000000 > /proc/sys/fs/file-max
+
+  ​	但是修改后，若重启虚拟机，file-max会还原。
+
+  ```txt
+  sudo -i，加载用户变量，并跳转到目标用户home目录；
+  sudo -s，不加载用户变量，不跳转目录；
+  ```
+
+   如何解决：
+
+  ​	/etc/sysctl.conf
+
+  ​	fs.file-max=1000000
+
+  ​	sudo sysctl -p
+
+##### 12.2 Netty应用级别性能调优
+
++ Netty应用级别性能瓶颈
+
+  代码实现统计qps, 平均响应时间统计：
+
+  ```java
+  @ChannelHandler.Sharable
+  public class ClientBusinessHandler extends SimpleChannelInboundHandler<ByteBuf> {
+      public static final ChannelHandler INSTANCE = new ClientBusinessHandler();
+  
+      private static AtomicLong beginTime = new AtomicLong(0);
+      private static AtomicLong totalResponseTime = new AtomicLong(0);
+      private static AtomicInteger totalRequest = new AtomicInteger(0);
+  
+      public static final Thread THREAD = new Thread(() -> {
+          try {
+              while (true) {
+                  long duration = System.currentTimeMillis() - beginTime.get();
+                  if (duration != 0) {
+                      System.out.println("qps: " + 1000 * totalRequest.get() / duration + ", " + "avg response time: " + ((float) totalResponseTime.get()) / totalRequest.get());
+                      Thread.sleep(2000);
+                  }
+              }
+  
+          } catch (InterruptedException ignored) {
+          }
+      });
+  
+      @Override
+      public void channelActive(ChannelHandlerContext ctx) {
+          ctx.executor().scheduleAtFixedRate(() -> {
+  
+              ByteBuf byteBuf = ctx.alloc().ioBuffer();
+              byteBuf.writeLong(System.currentTimeMillis());
+              ctx.channel().writeAndFlush(byteBuf);
+  
+          }, 0, 1, TimeUnit.SECONDS);
+      }
+  
+      @Override
+      protected void channelRead0(ChannelHandlerContext ctx, ByteBuf msg) {
+          totalResponseTime.addAndGet(System.currentTimeMillis() - msg.readLong());
+          totalRequest.incrementAndGet();
+  
+          if (beginTime.compareAndSet(0, System.currentTimeMillis())) {
+              THREAD.start();
+          }
+      }
+  
+      @Override
+      public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+          // ignore
+      }
+  }
+  ```
+
++ Netty应用级别性能调优过程
+
+  如何在生产环境中，使用netty的应用响应时间从秒级到毫秒级的优化？
+
+  思路：1）将耗时的操作放到线程池里执行
+
+  ```java
+@ChannelHandler.Sharable
+  public class ServerBusinessHandler extends SimpleChannelInboundHandler<ByteBuf> {
+      public static final ChannelHandler INSTANCE = new ServerBusinessHandler();
+  
+  
+      @Override
+      protected void channelRead0(ChannelHandlerContext ctx, ByteBuf msg) {
+          ByteBuf data = Unpooled.directBuffer();
+          data.writeBytes(msg);
+          //getResult相对耗时，可能从数据库读取数据，程序瓶颈的地方
+          Object result = getResult(data);
+          ctx.channel().writeAndFlush(result);
+      }
+  
+      protected Object getResult(ByteBuf data) {
+          // 90.0% == 1ms
+          // 95.0% == 10ms   1000 50 > 10ms
+          // 99.0% == 100ms  1000 10 > 100ms
+          // 99.9% == 1000ms 1000 1 > 1000ms
+          int level = ThreadLocalRandom.current().nextInt(1, 1000);
+  
+          int time;
+          if (level <= 900) {
+              time = 1;
+          } else if (level <= 950) {
+              time = 10;
+          } else if (level <= 990) {
+              time = 100;
+          } else {
+              time = 1000;
+          }
+  
+          try {
+              Thread.sleep(time);
+          } catch (InterruptedException e) {
+          }
+  
+          return data;
+      }
+  
+      @Override
+      public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+          // ignore
+      }
+  }
+  ```
+  
+  ​		
+  
+  ======》
+  
+  
+  
+  ```java
+  @ChannelHandler.Sharable
+  public class ServerBusinessThreadPoolHandler extends ServerBusinessHandler {
+      public static final ChannelHandler INSTANCE = new ServerBusinessThreadPoolHandler();
+      private static ExecutorService threadPool = Executors.newFixedThreadPool(1000);
+  
+  
+      @Override
+      protected void channelRead0(ChannelHandlerContext ctx, ByteBuf msg) {
+          ByteBuf data = Unpooled.directBuffer();
+          data.writeBytes(msg);
+          //将耗时的部分交给线程池，由线程池分配线程执行
+          threadPool.submit(() -> {
+              Object result = getResult(data);
+              ctx.channel().writeAndFlush(result);
+          });
+  
+      }
+  }
+  ```
+  
+  ​	2）调整线程池的中线程的数量
+  
+  com.leh.netty.performance.thread.ServerBusinessThreadPoolHandler#threadPool
+  
+  ```java
+  private static ExecutorService threadPool = Executors.newFixedThreadPool(1000);
+  ```
+  
+  ```java
+  public class Server {
+  
+      public static void main(String[] args) {
+  
+          EventLoopGroup bossGroup = new NioEventLoopGroup();
+          EventLoopGroup workerGroup = new NioEventLoopGroup();
+          //创建业务线程组
+          EventLoopGroup businessGroup = new NioEventLoopGroup(1000);
+  
+          ServerBootstrap bootstrap = new ServerBootstrap();
+          bootstrap.group(bossGroup, workerGroup);
+          bootstrap.channel(NioServerSocketChannel.class);
+          bootstrap.childOption(ChannelOption.SO_REUSEADDR, true);
+  
+  
+          bootstrap.childHandler(new ChannelInitializer<SocketChannel>() {
+              @Override
+              protected void initChannel(SocketChannel ch) {
+                  ch.pipeline().addLast(new FixedLengthFrameDecoder(Long.BYTES));
+                  //将业务处理器交给业务线程处理
+                  ch.pipeline().addLast(businessGroup, ServerBusinessHandler.INSTANCE);
+  //                ch.pipeline().addLast(ServerBusinessThreadPoolHandler.INSTANCE);
+              }
+          });
+  
+  
+          bootstrap.bind(PORT).addListener((ChannelFutureListener) future -> System.out.println("bind success in port: " + PORT));
+      }
+  
+  }
+  ```
