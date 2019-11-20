@@ -33,6 +33,7 @@ public class Client {
             }
         });
 
+        //每秒发起1000个连接，意味着qps在1000左右
         for (int i = 0; i < 1000; i++) {
             bootstrap.connect(SERVER_HOST, port).get();
         }
