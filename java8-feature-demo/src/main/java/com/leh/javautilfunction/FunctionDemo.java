@@ -12,7 +12,7 @@ import java.util.function.Supplier;
  */
 
 class Demo {
-    void p(String s) {
+    void print(String s) {
         System.out.println(s);
     }
 }
@@ -25,7 +25,7 @@ public class FunctionDemo {
         System.out.println(func1.apply("h"));
 
         //消费型
-        Consumer<String> func2 = new Demo() :: p;
+        Consumer<String> func2 = new Demo() :: print;
         Consumer<String> func21 = System.out :: println;
         func2.accept("hello");
         func21.accept("hello");

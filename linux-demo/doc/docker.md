@@ -492,7 +492,7 @@ centos 默认只开启22端口  其他端口都被防火墙拦截
 
   ​				协议可以是 tcp 或 udp
 
-  + firewall-cmd --zone=public --add-port=80/tcp --permanent （--permanent永久生效，没有					此参数重启后失效）
+  + firewall-cmd --zone=public --add-port=80/tcp --permanent （--permanent永久生效，没有此参数重启后失效）
 
     firewall-cmd --zone=public --add-port=1000-2000/tcp --permanent 
 
