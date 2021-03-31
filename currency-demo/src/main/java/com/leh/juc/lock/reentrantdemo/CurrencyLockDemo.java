@@ -49,9 +49,9 @@ public class CurrencyLockDemo {
 
     private static void testSync() {
 
+        lock.lock();
+        //lock.lockInterruptibly();
         try {
-            lock.lock();
-            //lock.lockInterruptibly();
             System.out.println("当前线程》》》》" + Thread.currentThread().getName());
             Thread.sleep(5000);
             System.out.println("当前线程》》》》" + Thread.currentThread().getName() + "》》》after 5s awake");

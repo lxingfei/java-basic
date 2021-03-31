@@ -28,12 +28,13 @@ public class BiasedLock {
 
         System.out.println(ClassLayout.parseInstance(lock).toPrintable());
 
-        synchronized (lock) {                   // ------------------------ 1
+        synchronized (lock) {
+            // ------------------------ 1
 
-                                                /*
-                                                    当main线程第一次执行到这里对lock加锁，没有竞争 --》加偏向锁 --》对象头的64bit会发生变化
-                                                    通过CAS将上锁的线程id 存到对象头中
-                                                 */
+            /*
+                当main线程第一次执行到这里对lock加锁，没有竞争 --》加偏向锁 --》对象头的64bit会发生变化
+                通过CAS将上锁的线程id 存到对象头中
+             */
 
             System.out.println(Thread.currentThread().getName() + "》》》lock ing one ");
             System.out.println(ClassLayout.parseInstance(lock).toPrintable());

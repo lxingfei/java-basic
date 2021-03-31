@@ -17,6 +17,7 @@
         <module>jvm-demo</module>
         <module>java8-feature-demo</module>
         <module>netty-demo</module>
+        <module>guava-demo</module>
     </modules>
 
     <dependencyManagement>
