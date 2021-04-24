@@ -1,4 +1,4 @@
-package com.leh.juc.future;
+package com.leh.juc.future.completionservice;
 
 import java.util.concurrent.*;
 

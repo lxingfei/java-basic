@@ -1,8 +1,6 @@
-package com.leh.juc.future;
+package com.leh.juc.future.completionservice;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.*;
 
