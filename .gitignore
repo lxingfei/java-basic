@@ -5,6 +5,10 @@
 # IntelliJ project files
 .idea
 *.iml
+compiler.xml
+modules.xml
+vcs.xml
+workspace.xml
 /target/
 .gitignore
 /serialize-demo/target/
