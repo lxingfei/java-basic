@@ -19,3 +19,4 @@ workspace.xml
 /netty-demo/target/
 /guava-demo/target/
 /jvm-demo/target/
+/.idea/
