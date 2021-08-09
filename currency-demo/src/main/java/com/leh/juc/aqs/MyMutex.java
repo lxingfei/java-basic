@@ -24,7 +24,7 @@ public class MyMutex implements Lock {
                 // 主要为了判断是否可重⼊（⼀会⼉会说明）
                 setExclusiveOwnerThread(Thread.currentThread());
             }
-            //获取同步状态成功，返回 true
+            // 获取同步状态成功，返回 true
             return true;
         }
 
