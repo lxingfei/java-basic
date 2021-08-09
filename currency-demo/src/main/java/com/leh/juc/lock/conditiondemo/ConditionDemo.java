@@ -22,7 +22,7 @@ public class ConditionDemo {
     private static Condition condition = lock.newCondition();
 
     /**
-     * 从整体上来看Object的wait和notify/notify是与对象监视器配合完成线程间的等待/通知机制，
+     * 从整体上来看Object的wait和notify/notifyAll是与对象监视器配合完成线程间的等待/通知机制，
      * 而Condition与Lock配合完成等待通知机制，
      * 前者是java底层级别的，后者是语言级别的，具有更高的可控制性和扩展性。
      * 两者除了在使用方式上不同外，在功能特性上还是有很多的不同：
