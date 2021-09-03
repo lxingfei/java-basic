@@ -1,6 +1,7 @@
 package com.leh;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,13 +16,30 @@ import java.util.stream.Stream;
  **/
 public class Demo {
     public static void main(String[] args) {
-        replaceBlank();
+        String str = "abc";
+        setStr(str);
+        System.out.println(str);
+        List<?> list = new ArrayList<>();
+        List<String> listString = new ArrayList<>();
+        listString = (List<String>) list;
+        list = listString;
+
+/*        List<Object> list2 = new ArrayList<>();
+        List<String> listString2 = new ArrayList<>();
+        list2 = listString2;
+        listString2 = list2;  编译不通过*/
+       /* replaceBlank();
         String str = "123456  7989\n" +
                 "90   90，abc,cde\n" +
-                "uuio";
+                "uuio";*/
         //getStringNoBlank(str);
         //getStringNoBlank222(str);
         // spiltStrParam(str);
+    }
+
+    private static String setStr(String str) {
+        str = "efg";
+        return str;
     }
 
     public static List<String> spiltStrParam(String param) {
