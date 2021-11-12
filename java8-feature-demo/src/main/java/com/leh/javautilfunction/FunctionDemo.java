@@ -24,7 +24,7 @@ public class FunctionDemo {
     public static void main(String[] args) {
         //完整功能型
         Function<String, Boolean> func1 = "hello xxx"::startsWith;
-        System.out.println(func1.apply("h"));
+        System.out.println(func1.apply("i"));
 
         //消费型
         Consumer<String> func2 = new Demo() :: print;
